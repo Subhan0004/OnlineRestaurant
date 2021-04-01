@@ -8,6 +8,12 @@ namespace Restaurant.Core.Domain.Entities
 {
     public class OrderDetails: BaseEntity
     {
+        public Meal Meal { get; set; }
 
+        public Order Order { get; set; }
+
+        public int OrderCount { get; set; }
+
+        public string Note { get; set; }
     }
 }

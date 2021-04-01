@@ -9,5 +9,8 @@ namespace Restaurant.Core.Domain.Entities
     public class Categories : BaseEntity
     {
 
+        public string Name { get; set; }
+
+        public string Note { get; set; }
     }
 }
