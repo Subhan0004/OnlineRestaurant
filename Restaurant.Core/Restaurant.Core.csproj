@@ -43,13 +43,13 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Domain\Entities\BaseEntity.cs" />
-    <Compile Include="Domain\Entities\Categories.cs" />
-    <Compile Include="Domain\Entities\Couriers.cs" />
-    <Compile Include="Domain\Entities\Customers.cs" />
+    <Compile Include="Domain\Entities\Categorie.cs" />
+    <Compile Include="Domain\Entities\Courier.cs" />
+    <Compile Include="Domain\Entities\Customer.cs" />
     <Compile Include="Domain\Entities\Meal.cs" />
-    <Compile Include="Domain\Entities\OrderDetails.cs" />
-    <Compile Include="Domain\Entities\Orders.cs" />
-    <Compile Include="Domain\Entities\Users.cs" />
+    <Compile Include="Domain\Entities\OrderDetail.cs" />
+    <Compile Include="Domain\Entities\Order.cs" />
+    <Compile Include="Domain\Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

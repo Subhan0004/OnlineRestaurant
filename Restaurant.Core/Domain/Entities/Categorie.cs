@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Core.Domain.Entities
 {
-    public class OrderDetails: BaseEntity
+    public class Categorie : BaseEntity
     {
-        public Meal Meal { get; set; }
 
-        public Order Order { get; set; }
-
-        public int OrderCount { get; set; }
+        public string Name { get; set; }
 
         public string Note { get; set; }
     }

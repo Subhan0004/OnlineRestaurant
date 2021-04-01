@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Core.Domain.Entities
 {
-    public class Categories : BaseEntity
+    public class User : BaseEntity
     {
+        public string Username { get; set; }
 
-        public string Name { get; set; }
+        public string Password { get; set; }
 
-        public string Note { get; set; }
+        public bool CanOperateCrm { get; set; }
+
     }
 }
