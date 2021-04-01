@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace RestaurantApp.View
+namespace RestaurantApp.Views
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
@@ -24,9 +24,8 @@ namespace RestaurantApp.View
             InitializeComponent();
         }
 
-        private void Border_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
+       
 
-        }
+      
     }
 }
