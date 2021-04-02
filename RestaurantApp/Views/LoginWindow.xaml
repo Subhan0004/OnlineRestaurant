@@ -149,18 +149,19 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
-        
-        
+
+
     </Window.Resources>
-    
-   <Window.Background>
+
+    <Window.Background>
         <ImageBrush ImageSource="Pictures\photo3.jpg" />
     </Window.Background>
+    
     <StackPanel  
         Opacity="0.8"
         Margin="0,0,0,0" Background="#2D3969">
-        
 
+        
         <Label
             FontFamily="Georgia "
             Content="Sign In" 
@@ -185,7 +186,7 @@
             Style="{DynamicResource TextBoxStyle4}" >
             
             <TextBox.InputBindings>
-            <KeyBinding Command="{Binding Path=}" Key="Enter" />
+            <KeyBinding Command="{Binding}" Key="Enter" />
             </TextBox.InputBindings>
         </TextBox>
 
@@ -204,13 +205,13 @@
                  FontFamily="Georgia" 
                  Height="30" Style="{DynamicResource PasswordBoxStyle1}">
             <PasswordBox.InputBindings>
-                <KeyBinding Command="{Binding Path=}" CommandParameter="{Binding Path=}" Key="Enter" />
+                <KeyBinding Command="{Binding }" CommandParameter="{Binding }" Key="Enter" />
             </PasswordBox.InputBindings>
         </PasswordBox>
 
         <!--button-->
         <Button 
-                Command="{Binding Path=}" 
+                Command="{Binding }" 
                 CommandParameter="{Binding }"
                 Height="30" Content="Sign In" 
                 FontSize="16" 
