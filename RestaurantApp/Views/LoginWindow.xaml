@@ -153,9 +153,9 @@
 
     </Window.Resources>
 
-    <Window.Background>
+    <!--<Window.Background>
         <ImageBrush ImageSource="Pictures\photo3.jpg" />
-    </Window.Background>
+    </Window.Background>-->
     
     <StackPanel  
         Opacity="0.8"

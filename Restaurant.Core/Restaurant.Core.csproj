@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="DataAccess\SqlServer\BaseRepository.cs" />
+    <Compile Include="DataAccess\SqlServer\SqlContext.cs" />
+    <Compile Include="DataAccess\SqlServer\SqlUnitOfWork.cs" />
+    <Compile Include="DataAccess\SqlServer\SqlUserRepository.cs" />
     <Compile Include="Domain\Entities\BaseEntity.cs" />
     <Compile Include="Domain\Entities\Categorie.cs" />
     <Compile Include="Domain\Entities\Courier.cs" />
