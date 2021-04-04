@@ -56,6 +56,7 @@
     <Compile Include="Domain\Entities\OrderDetail.cs" />
     <Compile Include="Domain\Entities\Order.cs" />
     <Compile Include="Domain\Entities\User.cs" />
+    <Compile Include="Enums\ServerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
