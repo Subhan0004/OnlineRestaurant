@@ -1,4 +1,5 @@
-﻿using Restaurant.Core.Domain.Entities;
+﻿using Restaurant.Core.Domain.Abstract;
+using Restaurant.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
