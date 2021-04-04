@@ -71,7 +71,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Command\BaseCommand.cs" />
+    <Compile Include="Command\Configuration\CancelCommand.cs" />
+    <Compile Include="Command\Configuration\SaveCommand.cs" />
+    <Compile Include="Command\LoginCommand.cs" />
+    <Compile Include="Models\DBSettings.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ConfigurationViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
@@ -112,6 +118,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Pictures\photo3.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Restaurant.Core\Restaurant.Core.csproj">
+      <Project>{331B5050-6D93-4ABD-BAD1-59C0B1771E6D}</Project>
+      <Name>Restaurant.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
