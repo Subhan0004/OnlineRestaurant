@@ -49,7 +49,7 @@
     <Compile Include="Domain\Abstract\IUnitOfWork.cs" />
     <Compile Include="Domain\Abstract\IUserRepository.cs" />
     <Compile Include="Domain\Entities\BaseEntity.cs" />
-    <Compile Include="Domain\Entities\Categorie.cs" />
+    <Compile Include="Domain\Entities\Category.cs" />
     <Compile Include="Domain\Entities\Courier.cs" />
     <Compile Include="Domain\Entities\Customer.cs" />
     <Compile Include="Domain\Entities\Meal.cs" />

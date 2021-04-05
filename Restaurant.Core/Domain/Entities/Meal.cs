@@ -8,7 +8,7 @@ namespace Restaurant.Core.Domain.Entities
 {
     public class Meal : BaseEntity
     {
-        public Categorie Categorie { get; set; }
+        public Category Category { get; set; }
 
         public string Name { get; set; }
 
