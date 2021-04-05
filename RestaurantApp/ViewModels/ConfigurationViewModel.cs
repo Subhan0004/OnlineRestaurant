@@ -14,6 +14,6 @@ namespace RestaurantApp.ViewModels
 
         }
 
-        public DBSettings DBSettings { get; set; }
+        public DbSettings DBSettings { get; set; }
     }
 }
