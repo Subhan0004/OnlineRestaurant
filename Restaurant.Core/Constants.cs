@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Core
 {
-    class Constants
+    public static class Constants
     {
+        public static string LOGFILEFOLDER = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Library\";
+
+        public static string LOGFILEPATH = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Library\log.txt";
     }
 }
