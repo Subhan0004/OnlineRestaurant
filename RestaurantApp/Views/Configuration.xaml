@@ -36,7 +36,7 @@
                         </DockPanel>
                         <DockPanel>
                             <Label Content="Şifrə" Width="130" Foreground="white" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" />
-                            <TextBox Height="45" Width="300" BorderThickness="2" Margin="5"/>
+                            <PasswordBox Name="txtPassword" Height="45" Width="300" BorderThickness="2" Margin="5"/>
                         </DockPanel>
                     </StackPanel>
                 </Grid>
