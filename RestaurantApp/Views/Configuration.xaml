@@ -14,17 +14,17 @@
                 <DockPanel>
                     <Label Content="Server adı" Width="130" FontWeight="Bold" FontSize="20" Foreground="White"
                            VerticalContentAlignment="Center" />
-                    <TextBox Height="45" Width="300" Margin="5"/>
+                    <TextBox Height="45" Width="300" Margin="5" Text="{Binding Path=DbSettings.ServerName}"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Content="Baza adı" Width="130" FontWeight="Bold" FontSize="20" Foreground="White"
                            VerticalContentAlignment="Center" />
-                    <TextBox Height="45" Width="300" Margin="5"/>
+                    <TextBox Height="45" Width="300" Margin="5" Text="{Binding Path=DbSettings.DbName}"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Content="Bağlantı növü" Width="140" FontWeight="Bold" FontSize="20" Foreground="White"
                            VerticalContentAlignment="Center" />
-                    <RadioButton Content="Windows" Margin="20" FontSize="14" FontWeight="Bold" Foreground="White" Background="Beige" VerticalAlignment="Center"/>
+                    <RadioButton Content="Windows" IsChecked="{Binding DbSettings.IntegratedSecurity}" Margin="20" FontSize="14" FontWeight="Bold" Foreground="White" Background="Beige" VerticalAlignment="Center"/>
                     <RadioButton Content="Sql Server" VerticalAlignment="Center" Margin="20"
                                  Background="Beige" FontSize="14" Foreground="White" FontWeight="Bold"/>
                 </DockPanel>
@@ -32,7 +32,7 @@
                     <StackPanel>
                         <DockPanel>
                             <Label Content="Login" Width="130" Foreground="white" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" />
-                            <TextBox Height="45" Width="300" BorderThickness="2"/>
+                            <TextBox Text="{Binding DbSettings.Username}" Height="45" Width="300" BorderThickness="2"/>
                         </DockPanel>
                         <DockPanel>
                             <Label Content="Şifrə" Width="130" Foreground="white" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" />
@@ -41,8 +41,8 @@
                     </StackPanel>
                 </Grid>
                 <DockPanel Margin="60,15,0,0">
-                    <Button Content="Saxla" FontSize="25" FontWeight="Bold"  Foreground="White" Background="DarkSlateBlue" Width="140" Height="45"/>
-                    <Button Content="İmtina" Foreground="White" FontSize="25" FontWeight="Bold" Background="Crimson" Width="140"/>
+                    <Button Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=txtPassword}" Content="Saxla" FontSize="25" FontWeight="Bold"  Foreground="White" Background="DarkSlateBlue" Width="140" Height="45"/>
+                    <Button Command="{Binding CancelCommand}" Content="İmtina" Foreground="White" FontSize="25" FontWeight="Bold" Background="Crimson" Width="140"/>
                 </DockPanel>
             </StackPanel>
         </Grid>
