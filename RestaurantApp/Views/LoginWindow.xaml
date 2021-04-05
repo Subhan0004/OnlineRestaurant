@@ -183,10 +183,11 @@
             Foreground="Black" 
             FontFamily="Georgia" 
             Height="30" 
+            Text="{Binding Path=Username}"
             Style="{DynamicResource TextBoxStyle4}" >
             
             <TextBox.InputBindings>
-            <KeyBinding Command="{Binding}" Key="Enter" />
+            <KeyBinding Command="{Binding Path=SignIn}" CommandParameter="{Binding ElementName=PasswordTxt}" Key="Enter" />
             </TextBox.InputBindings>
         </TextBox>
 
@@ -205,7 +206,7 @@
                  FontFamily="Georgia" 
                  Height="30" Style="{DynamicResource PasswordBoxStyle1}">
             <PasswordBox.InputBindings>
-                <KeyBinding Command="{Binding }" CommandParameter="{Binding }" Key="Enter" />
+                <KeyBinding Command="{Binding SignIn }" CommandParameter="{Binding ElementName=PasswordTxt }" Key="Enter" />
             </PasswordBox.InputBindings>
         </PasswordBox>
         <Separator BorderBrush="#60444444" Margin="10"/>
@@ -215,8 +216,8 @@
 
         <!--button-->
         <Button 
-                Command="{Binding }" 
-                CommandParameter="{Binding }"
+                Command="{Binding Path=SignIn }" 
+                CommandParameter="{Binding ElementName=PasswordTxt }"
                 Height="35" Content="Sign In" 
                 FontSize="16" 
                 FontFamily="Georgia" 
