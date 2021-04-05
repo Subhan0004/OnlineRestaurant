@@ -82,7 +82,7 @@
     <Compile Include="Command\Configuration\CancelCommand.cs" />
     <Compile Include="Command\Configuration\SaveCommand.cs" />
     <Compile Include="Command\LoginCommand.cs" />
-    <Compile Include="Models\DBSettings.cs" />
+    <Compile Include="Models\DbSettings.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ConfigurationViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
