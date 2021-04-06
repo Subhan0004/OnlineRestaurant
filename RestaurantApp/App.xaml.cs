@@ -1,4 +1,5 @@
-﻿using RestaurantApp.ViewModels;
+﻿using Restaurant.Core;
+using RestaurantApp.ViewModels;
 using RestaurantApp.Views;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace RestaurantApp
     {
         public App()
         {
+
+
             LoginViewModel viewModel = new LoginViewModel();
             MainWindow = new LoginWindow();
 
