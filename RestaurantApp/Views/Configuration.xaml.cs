@@ -41,7 +41,7 @@ namespace RestaurantApp
         {
             ConfigurationViewModel viewModel = (ConfigurationViewModel)DataContext;
 
-            viewModel.DbSettings.SaveConfig();
+            viewModel.DBSettings.SaveConfig();
 
             Close();
 

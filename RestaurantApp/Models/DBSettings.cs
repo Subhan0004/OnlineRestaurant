@@ -66,10 +66,10 @@ namespace RestaurantApp.Models
             return builder.ConnectionString;
         }
 
-        //public void SaveConfig()
-        //{
-        //    string json = JsonConvert.SerializeObject(this);
-        //    File.WriteAllText(DBSETTINGS, json);
-        //}
+        public void SaveConfig()
+        {
+            string json = JsonConvert.SerializeObject(this);
+            File.WriteAllText(DBSETTINGS, json);
+        }
     }
 }

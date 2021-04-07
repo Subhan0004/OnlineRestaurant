@@ -18,6 +18,7 @@ namespace RestaurantApp
     {
         public App()
         {
+
             MainWindow = new StartWindow();
             MainWindow.Show();
 
