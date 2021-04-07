@@ -14,7 +14,7 @@ namespace RestaurantApp.ViewModels
         
         public string Username { get; set; }
 
-        private Visibility errorVisibility = Visibility.Collapsed;
+        private Visibility errorVisibility = Visibility.Hidden;
         public Visibility ErrorVisibility
         {
             get => errorVisibility;

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Restaurant.Core;
 using RestaurantApp.Helpers;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,7 @@ namespace RestaurantApp.Models
             if (!builder.IntegratedSecurity)
             {
                 builder.UserID = settings.Username;
-                //builder.Password = Helper.Decrypt(settings.CryptPassword);
+                builder.Password = SecurityHelper.Decrypt(settings.Password);
             }
             return builder.ConnectionString;
         }
