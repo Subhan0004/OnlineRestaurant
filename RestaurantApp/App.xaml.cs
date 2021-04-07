@@ -18,13 +18,14 @@ namespace RestaurantApp
     {
         public App()
         {
+            MainWindow = new StartWindow();
+            MainWindow.Show();
 
+            //LoginViewModel viewModel = new LoginViewModel();
+            //MainWindow = new LoginWindow();
 
-            LoginViewModel viewModel = new LoginViewModel();
-            MainWindow = new LoginWindow();
-
-            viewModel.Window = MainWindow;
-            MainWindow.DataContext = viewModel;
+            //viewModel.Window = MainWindow;
+            //MainWindow.DataContext = viewModel;
 
             MainWindow.Show();
         }

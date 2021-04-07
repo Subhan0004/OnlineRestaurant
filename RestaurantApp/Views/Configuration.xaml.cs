@@ -26,12 +26,12 @@ namespace RestaurantApp
 
         private void rbWindows_Checked(object sender, RoutedEventArgs e)
         {
-            gridSqlServer.IsEnabled = false; 
+            grdSqlServer.IsEnabled = false; 
         }
 
         private void rbSqlServer_Checked(object sender, RoutedEventArgs e)
         {
-            gridSqlServer.IsEnabled = true;
+            grdSqlServer.IsEnabled = true;
         }
     }
 }
