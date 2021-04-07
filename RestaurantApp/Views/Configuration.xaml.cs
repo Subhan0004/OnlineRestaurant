@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,14 +25,26 @@ namespace RestaurantApp
             InitializeComponent();
         }
 
-        private void rbWindows_Checked(object sender, RoutedEventArgs e)
+        private void rdbChecked(object sender, RoutedEventArgs e)
         {
-            grdSqlServer.IsEnabled = false; 
+            RadioButton button = (RadioButton)sender;
+
+            grdSqlServer.IsEnabled = button != rdbWindows;
         }
 
-        private void rbSqlServer_Checked(object sender, RoutedEventArgs e)
+        private void btnCancelClick(object sender, RoutedEventArgs e)
         {
-            grdSqlServer.IsEnabled = true;
+            Close();
+        }
+
+        private void btnSaveClick(object sender, RoutedEventArgs e)
+        {
+            ConfigurationViewModel viewModel = (ConfigurationViewModel)DataContext;
+
+            viewModel.DbSettings.SaveConfig();
+
+            Close();
+
         }
     }
 }

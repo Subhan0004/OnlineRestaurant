@@ -110,15 +110,16 @@
                 </Grid>
                 <DockPanel Margin="60,15,0,0">
                     <Button 
-                        Command="{Binding SaveCommand}" 
                         CommandParameter="{Binding ElementName=txtPassword}" 
                         Content="Saxla" 
                         FontSize="25" 
+                        Name="btnSave"
                         FontWeight="Bold"  
                         Foreground="White" 
                         Background="DarkSlateBlue" 
                         Width="140" 
-                        Height="45"/>
+                        Height="45"
+                        Click="btnSaveClick"/>
                     <Button 
                         Command="{Binding CancelCommand}" 
                         Content="İmtina" 
@@ -126,7 +127,9 @@
                         FontSize="25" 
                         FontWeight="Bold" 
                         Background="Crimson" 
-                        Width="140"/>
+                        Width="140" 
+                        Name="btnCancel" 
+                        Click="btnCancelClick"/>
                 </DockPanel>
             </StackPanel>
         </Grid>
