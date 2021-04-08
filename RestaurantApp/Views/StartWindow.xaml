@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantApp.Views"
         mc:Ignorable="d"
-        Title="Server yoxlanışı" Height="400" Width="800" ResizeMode="NoResize" Loaded="WindowLoaded"
+        Title="Server yoxlanışı" Height="150" Width="300" ResizeMode="NoResize" Loaded="WindowLoaded"
         WindowStartupLocation="CenterScreen">
     <Grid Background="LightBlue">
         <StackPanel Name="firstPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
