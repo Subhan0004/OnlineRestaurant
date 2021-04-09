@@ -17,7 +17,7 @@ namespace RestaurantApp.Models
         public string DbName { get; set; }
         public bool IntegratedSecurity { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string CrptyPassword { get; set; }
         public const string CONFIGFOLDER = @"Config\";
         public const string DBSETTINGS = @"Config\DbSettings.json";
         private static DbSettings settings = new DbSettings();
@@ -62,7 +62,7 @@ namespace RestaurantApp.Models
             if (!builder.IntegratedSecurity)
             {
                 builder.UserID = settings.Username;
-                builder.Password = SecurityHelper.Decrypt(settings.Password);
+                builder.Password = SecurityHelper.Decrypt(settings.CrptyPassword);
             }
             return builder.ConnectionString;
         }
