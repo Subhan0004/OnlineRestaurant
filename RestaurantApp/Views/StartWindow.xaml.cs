@@ -49,7 +49,7 @@ namespace RestaurantApp.Views
             }
             else
             {
-                bool connectionSucceed = Kernel.DB.CheckServer();
+                bool connectionSucceed = Kernel.DB.OpenServer();
 
                 if (connectionSucceed)
                 {

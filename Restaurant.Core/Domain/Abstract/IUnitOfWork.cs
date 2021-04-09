@@ -8,7 +8,7 @@ namespace Restaurant.Core.Domain.Abstract
 {
     public interface IUnitOfWork
     {
-        bool CheckServer();
+        bool OpenServer();
         IUserRepository UserRepository { get; }
     }
 }
