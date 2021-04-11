@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Restaurant.Core.Extensions;
 
 namespace Restaurant.Core.DataAccess.SqlServer
 {
@@ -35,20 +36,20 @@ namespace Restaurant.Core.DataAccess.SqlServer
                     {
                         User user = new User();
 
-                        user.Id = Convert.ToInt32(reader["Id"]);
-                        user.Username = Convert.ToString(reader["Username"]);
-                        user.Password = Convert.ToString(reader["Password"]);
-                        user.CanOperateCrm = Convert.ToBoolean(reader["CanOperateCrm"]);
+                        user.Id = reader.GetInt32("Id");
+                        user.Username = reader.GetString("Username");
+                        user.Password = reader.GetString("Password");
+                        user.CanOperateCrm = reader.GetBoolean("CanOperateCrm");
                        
-                        if (!reader.IsDBNull(reader.GetOrdinal("CreatorId")))
+                        if (!reader.IsDBNull("CreatorId"))
                         {
                             user.Creator = new User()
                             {
                                 Id = Convert.ToInt32(reader["CreatorId"])
                             };
                         }
-                        user.LastModifiedDate = Convert.ToDateTime(reader["LastModifieddate"]);
-                        user.IsDeleted = Convert.ToBoolean(reader["IsDeleted"]);
+                        user.LastModifiedDate = reader.GetDateTime("LastModifiedDate");
+                        user.IsDeleted = reader.GetBoolean("IsDeleted");
                         
                         return user;
                     }
