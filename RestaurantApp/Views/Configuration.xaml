@@ -57,7 +57,7 @@
                         VerticalContentAlignment="Center" />
                     <RadioButton 
                         Content="Windows" 
-                        IsChecked="{Binding DbSettings.IntegratedSecurity}" 
+                        IsChecked="{Binding DbSettings.IntegratedSecurity}"
                         Margin="20" 
                         FontSize="14" 
                         FontWeight="Bold" 
