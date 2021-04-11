@@ -204,7 +204,7 @@
                  Margin="40,10,70,0" 
                  Foreground="Black" 
                  FontFamily="Georgia" 
-                 Height="30" Style="{DynamicResource PasswordBoxStyle1}">
+                 Height="30" Style="{DynamicResource PasswordBoxStyle1}" x:Name="PasswordTxt">
             <PasswordBox.InputBindings>
                 <KeyBinding Command="{Binding SignIn }" CommandParameter="{Binding ElementName=PasswordTxt }" Key="Enter" />
             </PasswordBox.InputBindings>
