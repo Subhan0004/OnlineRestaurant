@@ -127,14 +127,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Pictures\photo3.jpg" />
+    <Resource Include="Images\food2.jpeg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Restaurant.Core\Restaurant.Core.csproj">
       <Project>{331B5050-6D93-4ABD-BAD1-59C0B1771E6D}</Project>
       <Name>Restaurant.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\food3.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

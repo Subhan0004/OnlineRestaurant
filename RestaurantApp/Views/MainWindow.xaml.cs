@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -23,6 +24,51 @@ namespace RestaurantApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnMenuItemsClick(object sender, RoutedEventArgs e)
+        {
+            CircleEase ease = new CircleEase() { EasingMode = EasingMode.EaseOut };
+            DoubleAnimation doubleAnimation = new DoubleAnimation();
+           
+            Button button = (Button)sender;
+
+            Grid grid;
+
+            switch (button.Name)
+            {
+                case nameof(btnFoods):
+                    {
+                        grid = grdFoods;
+                        break;
+                    }
+                case nameof(btnOrders):
+                    {
+                        grid = grdOrders;
+                        break;
+                    }
+                case nameof(btnCustomers):
+                    {
+                        grid = grdCustomers;
+                        break;
+                    }
+                default:
+                    return;
+            }
+
+            StackPanel stackPanel = (StackPanel)grid.Children[0];
+            int childCount = stackPanel.Children.Count;
+
+            if(grid.Height != 0)
+            {
+                doubleAnimation.To = 0;
+            }
+            else
+            {
+                doubleAnimation.Duration = TimeSpan.FromMilliseconds(childCount * 250);
+                doubleAnimation.EasingFunction = ease;
+                grid.BeginAnimation(HeightProperty, doubleAnimation);
+            }
         }
     }
 }

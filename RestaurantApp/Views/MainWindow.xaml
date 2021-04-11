@@ -5,8 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="400">
-    <StackPanel>
-        
-    </StackPanel>
+        Height="{Binding SystemParameters.PrimaryScreenHeight}"
+        Width="{Binding SystemParameters.PrimaryScreenWidth}" WindowStartupLocation="CenterScreen"
+        Icon="/RestaurantApp;component/Images/food3.jpeg"
+        Title="Online-Restaurant idarəetmə proqramı" >
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="btnMenu">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Border" CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#2b5493"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#2b5493"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="btnMenuBig">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Border" CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#2b5493"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Grid.Row="0">
+            <Button Name="logo" Background="Transparent" BorderThickness="0">
+                <Image x:Name="adminImg" Source="/Images/food3.jpeg" Margin="7"/>
+            </Button>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="0">
+            <Grid Background="Crimson">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" Background="CadetBlue">
+            <ScrollViewer>
+                <Grid>
+                    <StackPanel Margin="0">
+                        <Button Style="{StaticResource btnMenuBig}" Name="btnFoods"  Height="55" Content="Foods" FontSize="20" FontWeight="Bold" Click="btnMenuItemsClick"/>
+                        <Grid Name="grdFoods" Height="0" >
+                            <StackPanel>
+                                <Button Visibility="{Binding CanUseInformations}" Style="{StaticResource btnMenu}" Name="btnCategories"  Content="Categories" Command="{Binding }"/>
+                                <Button Visibility="{Binding CanUseInformations}"  Style="{StaticResource btnMenu}" Name="btnMeal"  Content="Meal" Command="{Binding }"/>
+
+                            </StackPanel>
+                        </Grid>
+                        <Button Style="{StaticResource btnMenuBig}" Height="55" Content="Orders" Name="btnOrders" FontSize="20" FontWeight="Bold" Click="btnMenuItemClick" />
+                        <Grid  Name="grdOrders" Height="0">
+                            <StackPanel>
+                                <Button Visibility="{Binding CanUsePayments}" Style="{StaticResource btnMenu}" Content="Orders" Command="{Binding OpenCashStatistic}"/>
+                                <Button Visibility="{Binding CanUsePayments}" Style="{StaticResource btnMenu}" Content="OrderDetails" Command="{Binding OpenPayments}" />
+                                <Button  Visibility="{Binding CanUsePayments}" Style="{StaticResource btnMenu}" Content="Couriers" Command="{Binding OpenSalaries}" />
+                            </StackPanel>
+                        </Grid>
+                        <Button Style="{StaticResource btnMenuBig}" Name="btnCustomers" Height="55" Content="Customers" FontSize="20" FontWeight="Bold" Click="btnMenuItemClick"/>
+                        <Grid Name="grdCustomers" Height="0" >
+                            <StackPanel>
+                                <Button  Visibility="{Binding CanUsePayments}" Style="{StaticResource btnMenu}" Content="Customers" Command="{Binding OpenAddPay}"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+            <Grid  Margin="0,0,0,0" Background="Transparent" Name="grdCenter" >
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Images/food3.jpeg"  />
+            </Grid>
+        </Border>
+    </Grid>
 </Window>
