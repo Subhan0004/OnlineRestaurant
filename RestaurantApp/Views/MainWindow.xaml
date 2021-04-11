@@ -84,7 +84,7 @@
             <ScrollViewer>
                 <Grid>
                     <StackPanel Margin="0">
-                        <Button Style="{StaticResource btnMenuBig}" Name="btnFoods"  Height="55" Content="Foods" FontSize="20" FontWeight="Bold" Click="btnMenuItemsClick"/>
+                        <Button Style="{StaticResource btnMenuBig}" Name="btnFoods"  Height="55" Content="Foods" FontSize="20" FontWeight="Bold" Click="btnMenuItemClick"/>
                         <Grid Name="grdFoods" Height="0" >
                             <StackPanel>
                                 <Button Visibility="{Binding CanUseInformations}" Style="{StaticResource btnMenu}" Name="btnCategories"  Content="Categories" Command="{Binding }"/>

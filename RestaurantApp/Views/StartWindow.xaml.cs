@@ -54,14 +54,17 @@ namespace RestaurantApp.Views
                 if (connectionSucceed)
                 {
                     await Task.Delay(2500);
-                    LoginViewModel loginViewModel = new LoginViewModel();
-                    LoginWindow loginWindow = new LoginWindow();
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        LoginViewModel loginViewModel = new LoginViewModel();
+                        LoginWindow loginWindow = new LoginWindow();
 
-                    loginWindow.DataContext = loginViewModel;
-                    loginViewModel.Window = loginWindow;
+                        loginWindow.DataContext = loginViewModel;
+                        loginViewModel.Window = loginWindow;
 
-                    Close();
-                    loginWindow.ShowDialog();
+                        Close();
+                        loginWindow.ShowDialog();
+                    });
                 }
                 else
                 {

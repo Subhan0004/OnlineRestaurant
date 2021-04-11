@@ -39,7 +39,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
                         user.Id = reader.GetInt32("Id");
                         user.Username = reader.GetString("Username");
                         user.Password = reader.GetString("Password");
-                        user.CanOperateCrm = reader.GetBoolean("CanOperateCrm");
+                        user.CanOperatorCrm = reader.GetBoolean("CanOperatorCrm");
                        
                         if (!reader.IsDBNull("CreatorId"))
                         {

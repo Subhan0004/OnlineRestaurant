@@ -198,7 +198,7 @@
             FontSize="16" 
             Margin="60,50,0,0"  
             Foreground="White"/>
-        <PasswordBox 
+        <PasswordBox            
                  Padding="3"
                  FontSize="16" 
                  Margin="40,10,70,0" 

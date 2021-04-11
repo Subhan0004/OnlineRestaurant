@@ -12,7 +12,7 @@ namespace Restaurant.Core.Domain.Entities
 
         public string Password { get; set; }
 
-        public bool CanOperateCrm { get; set; }
+        public bool CanOperatorCrm { get; set; }
 
     }
 }

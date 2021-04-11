@@ -10,7 +10,7 @@ namespace RestaurantApp.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        public LoginCommand SingIn => new LoginCommand(this);
+        public LoginCommand SignIn => new LoginCommand(this);
         
         public string Username { get; set; }
 

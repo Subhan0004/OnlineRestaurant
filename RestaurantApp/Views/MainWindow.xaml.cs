@@ -26,7 +26,7 @@ namespace RestaurantApp
             InitializeComponent();
         }
 
-        private void btnMenuItemsClick(object sender, RoutedEventArgs e)
+        private void btnMenuItemClick(object sender, RoutedEventArgs e)
         {
             CircleEase ease = new CircleEase() { EasingMode = EasingMode.EaseOut };
             DoubleAnimation doubleAnimation = new DoubleAnimation();
