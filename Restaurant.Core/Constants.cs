@@ -8,8 +8,8 @@ namespace Restaurant.Core
 {
     public static class Constants
     {
-        public static string LOGFILEFOLDER = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Online-Restaurant\";
+        public static string LOGFILEFOLDER = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\OnlineRestaurant\";
 
-        public static string LOGFILEPATH = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\Online-Restaurant\log.txt";
+        public static string LOGFILEPATH = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\OnlineRestaurant\log.txt";
     }
 }

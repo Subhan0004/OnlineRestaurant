@@ -1,4 +1,5 @@
 ﻿using Restaurant.Core;
+using RestaurantApp.Helpers;
 using RestaurantApp.ViewModels;
 using RestaurantApp.Views;
 using System;
@@ -22,14 +23,18 @@ namespace RestaurantApp
             MainWindow = new StartWindow();
             MainWindow.Show();
 
-            //LoginViewModel viewModel = new LoginViewModel();
-            //MainWindow = new LoginWindow();
-
-            //viewModel.Window = MainWindow;
-            //MainWindow.DataContext = viewModel;
+            DispatcherUnhandledException += AppDispatcherUnhandledException;
 
             MainWindow.Show();
         }
 
+        private void AppDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            Helper.Log(e.Exception);
+           
+            MessageBox.Show("Unknown exception occured", "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            
+            e.Handled = true;
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace RestaurantApp.Models
                 settings = new DbSettings()
                 {
                     ServerName = "",
-                    DbName = "Online-RestaurantApp",
+                    DbName = "Online-RestaurantApp_",
                     IntegratedSecurity = true
                 };
 

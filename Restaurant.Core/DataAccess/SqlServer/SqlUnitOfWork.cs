@@ -18,7 +18,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
       
         public IUserRepository UserRepository => new SqlUserRepository(context);
       
-        public bool OpenServer()
+        public bool CheckServer()
         {
             try
             {
