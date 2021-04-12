@@ -121,7 +121,6 @@
                         Height="45"
                         Click="btnSaveClick"/>
                     <Button 
-                        Command="{Binding CancelCommand}" 
                         Content="İmtina" 
                         Foreground="White" 
                         FontSize="25" 

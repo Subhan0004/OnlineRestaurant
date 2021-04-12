@@ -81,7 +81,7 @@ namespace RestaurantApp.Views
         private void btnConfigClick(object sender, RoutedEventArgs e)
         {
             ConfigurationViewModel configurationViewModel = new ConfigurationViewModel();
-            configurationViewModel.DBSettings = DbSettings.Get();
+            configurationViewModel.DbSettings = DbSettings.Get();
 
             Configuration configWindow = new Configuration();
             configWindow.DataContext = configurationViewModel;
