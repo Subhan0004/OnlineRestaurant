@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RestaurantApp.Views.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <Border Background="DarkGray" BorderThickness="3">
+        <TextBlock Height="30" FontSize="20" Background="Salmon" Foreground="White" TextAlignment="Center" FontWeight="Bold" Text="{Binding Header}"/>
+    </Border>
 </UserControl>
