@@ -31,7 +31,12 @@ namespace RestaurantApp.Command
                 if (user.Password == passwordHash)
                 {
                     Kernel.CurrentUser = user;
+                    MainViewModel mainViewModel = new MainViewModel();
                     MainWindow mainWindow = new MainWindow();
+
+                    mainViewModel.Window = mainWindow;
+                    mainWindow.DataContext = mainViewModel;
+                    
                     mainWindow.Show();
                     viewModel.Window.Close();
 

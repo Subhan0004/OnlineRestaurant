@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RestaurantApp.ViewModels
 {
@@ -15,5 +16,15 @@ namespace RestaurantApp.ViewModels
         {
             PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
+
+    public abstract class BaseControlViewModel : BaseViewModel
+    {
+
+    }
+
+    public abstract class BaseWindowViewModel : BaseViewModel
+    {
+        public Window Window;
     }
 }

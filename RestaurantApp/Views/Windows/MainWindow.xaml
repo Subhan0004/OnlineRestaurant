@@ -73,7 +73,7 @@
             </Button>
         </Border>
         <Border Grid.Column="1" Grid.Row="0">
-            <Grid Background="Crimson">
+            <Grid Background="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
@@ -87,7 +87,7 @@
                         <Button Style="{StaticResource btnMenuBig}" Name="btnFoods"  Height="55" Content="Foods" FontSize="20" FontWeight="Bold" Click="btnMenuItemClick"/>
                         <Grid Name="grdFoods" Height="0" >
                             <StackPanel>
-                                <Button Visibility="{Binding CanUseInformations}" Style="{StaticResource btnMenu}" Name="btnCategories"  Content="Categories" Command="{Binding }"/>
+                                <Button Visibility="{Binding CanUseInformations}" Style="{StaticResource btnMenu}" Name="btnCategories"  Content="Categories" Command="{Binding OpenCategories }"/>
                                 <Button Visibility="{Binding CanUseInformations}"  Style="{StaticResource btnMenu}" Name="btnMeal"  Content="Meal" Command="{Binding }"/>
 
                             </StackPanel>
@@ -113,7 +113,7 @@
         </Border>
 
         <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
-            <Grid  Margin="0,0,0,0" Background="Transparent" Name="grdCenter" >
+            <Grid  Margin="0,0,0,0" Background="Transparent" Name="GrdCenter" >
                 <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Images/food3.jpeg"  />
             </Grid>
         </Border>

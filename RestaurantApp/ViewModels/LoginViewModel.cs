@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace RestaurantApp.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseWindowViewModel
     {
         public LoginCommand SignIn => new LoginCommand(this);
         
@@ -24,6 +24,5 @@ namespace RestaurantApp.ViewModels
                 OnPropertychanged(nameof(ErrorVisibility));
             }
         }
-        public Window Window;
     }
 }
