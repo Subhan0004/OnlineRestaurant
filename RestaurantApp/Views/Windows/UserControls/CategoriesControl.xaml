@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:RestaurantApp.Views.Windows.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+
+    <Border Background="AliceBlue" BorderThickness="3">
+        <TextBlock Height="30" Background="Crimson"  FontSize="20" Foreground="White"
+                   TextAlignment="Center"  FontWeight="Bold" Text="{Binding Header}"/>
+    </Border>
+    
+    
 </UserControl>
