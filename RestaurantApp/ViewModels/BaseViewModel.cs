@@ -20,7 +20,7 @@ namespace RestaurantApp.ViewModels
 
     public abstract class BaseControlViewModel : BaseViewModel
     {
-
+        public abstract string Header { get; }
     }
 
     public abstract class BaseWindowViewModel : BaseViewModel

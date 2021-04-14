@@ -1,4 +1,5 @@
 ﻿using RestaurantApp.ViewModels;
+using RestaurantApp.ViewModels.UserControls;
 using RestaurantApp.Views.Windows.UserControls;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,11 @@ namespace RestaurantApp.Command.MainPage
        
         public override void Execute(object parameter)
         {
+            CategoriesViewModel categoriesViewModel = new CategoriesViewModel();
             CategoriesControl categoriesControl = new CategoriesControl();
 
+            categoriesControl.DataContext = categoriesViewModel;
+           
             MainWindow mainWindow =(MainWindow)mainViewModel.Window;
 
             mainWindow.GrdCenter.Children.Clear();

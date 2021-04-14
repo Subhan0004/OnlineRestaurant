@@ -8,6 +8,6 @@ namespace RestaurantApp.ViewModels.UserControls
 {
     public class CategoriesViewModel : BaseControlViewModel
     {
-
+        public override string Header => "Categories";
     }
 }
