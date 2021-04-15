@@ -65,6 +65,9 @@
     <Compile Include="Views\Components\ControlHeader.xaml.cs">
       <DependentUpon>ControlHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Components\FormButtons.xaml.cs">
+      <DependentUpon>FormButtons.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <DependentUpon>CategoriesControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Components\ControlHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\FormButtons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
