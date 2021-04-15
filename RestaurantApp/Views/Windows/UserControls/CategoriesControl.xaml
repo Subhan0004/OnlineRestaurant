@@ -51,9 +51,9 @@
             <ListView x:Name="MainList" Grid.Row="1" Style="{StaticResource listViewCustom}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=}" Header="No" Width="30"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=}" Header="Name" Width="350"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=}" Header="Note" Width="600"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="No" Width="30"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Name" Width="350"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Note" Width="600"/>
                     </GridView>
                     
                 </ListView.View>
