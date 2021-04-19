@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Core.DataAccess.SqlServer
 {
-    public abstract class BaseRepository
+    public abstract class SqlBaseRepository
     {
         protected readonly SqlContext context;
        
-        public BaseRepository(SqlContext context)
+        public SqlBaseRepository(SqlContext context)
         {
             this.context = context;
         }

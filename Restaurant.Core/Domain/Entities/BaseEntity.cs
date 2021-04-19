@@ -12,7 +12,7 @@ namespace Restaurant.Core.Domain.Entities
 
         public User Creator { get; set; }
 
-        public DateTime LastModifiedDate { get; set; }
+        public DateTime LastModifiedDate { get; set; } = DateTime.UtcNow;
 
         public bool IsDeleted { get; set; }
 

@@ -10,7 +10,7 @@ using Restaurant.Core.Extensions;
 
 namespace Restaurant.Core.DataAccess.SqlServer
 {
-    public class SqlUserRepository : BaseRepository, IUserRepository
+    public class SqlUserRepository : SqlBaseRepository, IUserRepository
     {
         public SqlUserRepository(SqlContext context) : base(context)
         {

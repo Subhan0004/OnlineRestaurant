@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantApp.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -21,6 +22,18 @@ namespace RestaurantApp.ViewModels
     public abstract class BaseControlViewModel : BaseViewModel
     {
         public abstract string Header { get; }
+
+        private int currentSituation = 1;
+        public int CurrentSituation
+        {
+            get => currentSituation;
+            set
+            {
+                currentSituation = value;
+                OnPropertychanged(nameof(CurrentSituation));
+            }
+        } 
+         
     }
 
     public abstract class BaseWindowViewModel : BaseViewModel

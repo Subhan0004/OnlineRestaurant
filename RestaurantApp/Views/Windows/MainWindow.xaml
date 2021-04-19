@@ -103,7 +103,8 @@
                         <Button Style="{StaticResource btnMenuBig}" Name="btnCustomers" Height="55" Content="Customers" FontSize="20" FontWeight="Bold" Click="btnMenuItemClick"/>
                         <Grid Name="grdCustomers" Height="0" >
                             <StackPanel>
-                                <Button  Visibility="{Binding CanUsePayments}" Style="{StaticResource btnMenu}" Content="Customers" Command="{Binding OpenAddPay}"/>
+                                
+                                <Button  Visibility="{Binding CanUsePayments}" Style="{StaticResource btnMenu}" Content="Customers" Command="{Binding OpenCustomers}"/>
 
                             </StackPanel>
                         </Grid>

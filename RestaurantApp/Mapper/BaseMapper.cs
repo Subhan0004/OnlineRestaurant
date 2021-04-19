@@ -1,0 +1,17 @@
+﻿using Restaurant.Core.Domain.Entities;
+using RestaurantApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RestaurantApp.Mapper
+{
+    public abstract class BaseMapper<T1,T2> where T1:BaseEntity where T2:BaseModel
+    {
+        public abstract T1 Create(T2 t);
+        public abstract T2 Create(T1 t);
+
+    }
+}

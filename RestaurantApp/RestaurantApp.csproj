@@ -58,10 +58,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\Customers\BaseCustomerCommand.cs" />
+    <Compile Include="Command\Customers\DeleteCustomerCommand.cs" />
+    <Compile Include="Command\Customers\RejectCustomerCommand.cs" />
+    <Compile Include="Command\Customers\SaveCustomerCommand.cs" />
     <Compile Include="Command\MainPage\OpenCategoriesCommand.cs" />
+    <Compile Include="Command\MainPage\OpenCustomersCommand.cs" />
+    <Compile Include="Enums\Situation.cs" />
     <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\ModelValidatorHelper.cs" />
+    <Compile Include="Helpers\UIMessages.cs" />
+    <Compile Include="Mapper\BaseMapper.cs" />
+    <Compile Include="Mapper\CustomerMapper.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\UserControls\CategoriesViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\CustomersViewModel.cs" />
     <Compile Include="Views\Components\ControlHeader.xaml.cs">
       <DependentUpon>ControlHeader.xaml</DependentUpon>
     </Compile>
@@ -93,6 +106,9 @@
     <Compile Include="Views\Windows\UserControls\CategoriesControl.xaml.cs">
       <DependentUpon>CategoriesControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\UserControls\CustomersControl.xaml.cs">
+      <DependentUpon>CustomersControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Components\ControlHeader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +134,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Windows\UserControls\CategoriesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\UserControls\CustomersControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

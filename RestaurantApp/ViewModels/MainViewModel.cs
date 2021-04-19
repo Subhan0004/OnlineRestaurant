@@ -12,5 +12,7 @@ namespace RestaurantApp.ViewModels
     {
         public OpenCategoriesCommand OpenCategories => new OpenCategoriesCommand(this);
 
+        public OpenCustomersCommand OpenCustomers => new OpenCustomersCommand(this);
+
     }
 }
