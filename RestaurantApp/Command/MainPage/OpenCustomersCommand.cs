@@ -1,8 +1,12 @@
-﻿using RestaurantApp.ViewModels;
+﻿using Restaurant.Core.Domain.Entities;
+using RestaurantApp.Mapper;
+using RestaurantApp.Models;
+using RestaurantApp.ViewModels;
 using RestaurantApp.ViewModels.UserControls;
 using RestaurantApp.Views.Windows.UserControls;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +23,24 @@ namespace RestaurantApp.Command.MainPage
        
         public override void Execute(object parameter)
         {
+            List<Customer> customers = DB.CustomerRepository.Get();
+            List<CustomerModel> customerModels = new List<CustomerModel>();
+            CustomerMapper mapper = new CustomerMapper();
+
+            for(int i = 0; i< customers.Count; i++)
+            {
+                Customer customer = customers[i];
+                CustomerModel model = mapper.Map(customer);
+                
+                model.No = i + 1;
+                
+                customerModels.Add(model);
+
+            }
+
             CustomersViewModel customersViewModel = new CustomersViewModel();
+
+            customersViewModel.Customers = new ObservableCollection<CustomerModel>(customerModels);
 
             CustomersControl customersControl = new CustomersControl();
 

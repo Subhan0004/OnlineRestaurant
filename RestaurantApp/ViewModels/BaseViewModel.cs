@@ -15,7 +15,7 @@ namespace RestaurantApp.ViewModels
 
         protected void OnPropertychanged(string propertyName)
         {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 

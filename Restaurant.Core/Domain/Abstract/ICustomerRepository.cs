@@ -10,5 +10,7 @@ namespace Restaurant.Core.Domain.Abstract
     public interface ICustomerRepository
     {
         int Add(Customer customer);
+        bool Update(Customer customer);
+        List<Customer> Get();
     }
 }

@@ -10,7 +10,7 @@ namespace RestaurantApp.Mapper
 {
     public class CustomerMapper : BaseMapper<Customer,CustomerModel>
     {
-        public override Customer Create(CustomerModel customerModel)
+        public override Customer Map(CustomerModel customerModel)
         {
             Customer customer = new Customer();
 
@@ -19,14 +19,16 @@ namespace RestaurantApp.Mapper
             customer.Phone = customerModel.Phone;
             customer.Address = customerModel.Address;
             customer.Note = customerModel.Note;
+            customer.Id = customerModel.Id;
 
             return customer;
         }
 
-        public override CustomerModel Create(Customer customer)
+        public override CustomerModel Map(Customer customer)
         {
             CustomerModel customerModel = new CustomerModel();
 
+            customerModel.Id = customer.Id;
             customerModel.Name = customer.Name;
             customerModel.Surname = customer.Surname;
             customerModel.Phone = customer.Phone;

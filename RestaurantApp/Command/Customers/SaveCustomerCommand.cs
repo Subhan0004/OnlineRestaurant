@@ -26,6 +26,12 @@ namespace RestaurantApp.Command.Customers
             {
                 viewModel.CurrentSituation = (int)Situation.ADD;
             }
+            
+            else if (viewModel.CurrentSituation == (int)Situation.SELECTED)
+            {
+                viewModel.CurrentSituation = (int)Situation.EDIT;
+            }
+           
             else
             {
                 if(viewModel.CurrentSituation==(int)Situation.ADD || viewModel.CurrentSituation == (int)Situation.EDIT)
@@ -36,25 +42,30 @@ namespace RestaurantApp.Command.Customers
 
                         // STEP 2: CREATE CustomerEntity FROM CustomerModel
                         CustomerMapper customerMapper = new CustomerMapper();
-                        Customer customer = customerMapper.Create(viewModel.CurrentCustomer);
+                        Customer customer = customerMapper.Map(viewModel.CurrentCustomer);
                         customer.Creator = Kernel.CurrentUser;
 
                         // STEP 3: SAVE CustomerEntity to database
-                        DB.CustomerRepository.Add(customer);
+                        if (customer.Id != 0)
+                        {
+                            DB.CustomerRepository.Update(customer);
+                        }
+                        else
+                        {
+                           viewModel.CurrentCustomer.Id = DB.CustomerRepository.Add(customer);
+                           viewModel.CurrentCustomer.No = viewModel.Customers.Count + 1;
+                           viewModel.Customers.Add(viewModel.CurrentCustomer);
+                        }
 
                         // STEP 4: SET Situation TO NORMAL
-                        viewModel.CurrentSituation = (int)Situation.NORMAL;
                         viewModel.CurrentCustomer = new CustomerModel();
-
-                        // STEP 5: REFRESH LIST VIEW
+                        viewModel.CurrentSituation = (int)Situation.NORMAL;
+                       
                     }
                     else
                     {
                         MessageBox.Show(message, "Validasiya xətası", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-
-
-
 
                 }
             }

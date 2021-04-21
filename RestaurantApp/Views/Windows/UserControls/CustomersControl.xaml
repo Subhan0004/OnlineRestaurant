@@ -19,8 +19,8 @@
 
                 <Grid Background="LightGray">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0" Style="{StaticResource grdForm}" Background="SlateGray" Margin="0 0 10 0">
@@ -71,15 +71,18 @@
                 </Grid>
             </StackPanel>
 
-            <ListView x:Name="MainList" Grid.Row="1" Style="{StaticResource listViewCustom}">
+            <ListView x:Name="MainList" 
+                      ItemsSource="{Binding Path=Customers}"
+                      SelectedItem="{Binding Path=CurrentCustomer, Mode=TwoWay}"
+                      Grid.Row="1" Style="{StaticResource listViewCustom}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="No" Width="30"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Name" Width="200"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Surname" Width="200"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Phone" Width="150"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Address" Width="300"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Note" Width="350"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=No}" Header="No" Width="30"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="200"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Surname}" Header="Surname" Width="200"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Phone}" Header="Phone" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Address}" Header="Address" Width="300"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Note}" Header="Note" Width="350"/>
                     </GridView>
 
                 </ListView.View>
