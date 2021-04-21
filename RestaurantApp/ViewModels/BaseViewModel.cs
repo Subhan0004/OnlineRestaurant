@@ -13,7 +13,7 @@ namespace RestaurantApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertychanged(string propertyName)
+        protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -30,7 +30,7 @@ namespace RestaurantApp.ViewModels
             set
             {
                 currentSituation = value;
-                OnPropertychanged(nameof(CurrentSituation));
+                OnPropertyChanged(nameof(CurrentSituation));
             }
         } 
          

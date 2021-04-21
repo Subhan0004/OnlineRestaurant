@@ -26,11 +26,29 @@ namespace RestaurantApp.ViewModels.UserControls
             set
             {
                 currentCustomer = value;
-                CurrentSituation = (int)Situation.SELECTED;
-
-                OnPropertychanged(nameof(CurrentCustomer));
+                OnPropertyChanged(nameof(CurrentCustomer));
             }
         }
+
+        private CustomerModel selectedCustomer;
+        public CustomerModel SelectedCustomer
+        {
+            get => selectedCustomer;
+            set
+            {
+                selectedCustomer = value;
+                OnPropertyChanged(nameof(SelectedCustomer));
+
+                CurrentCustomer = SelectedCustomer?.Clone();
+
+                if(SelectedCustomer != null)
+                {
+                    CurrentSituation = (int)Situation.SELECTED;
+                }
+                
+            }
+        }
+
 
         private ObservableCollection<CustomerModel> _customer;
         public ObservableCollection<CustomerModel> Customers
@@ -39,7 +57,7 @@ namespace RestaurantApp.ViewModels.UserControls
             set
             {
                 _customer = value;
-                OnPropertychanged(nameof(Customers));
+                OnPropertyChanged(nameof(Customers));
             }
         }
 

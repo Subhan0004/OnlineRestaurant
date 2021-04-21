@@ -21,7 +21,7 @@ namespace RestaurantApp.ViewModels
             set
             {
                 errorVisibility = value;
-                OnPropertychanged(nameof(ErrorVisibility));
+                OnPropertyChanged(nameof(ErrorVisibility));
             }
         }
     }

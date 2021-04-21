@@ -84,5 +84,20 @@ namespace RestaurantApp.Models
 
         }
 
+        public CustomerModel Clone()
+        {
+            CustomerModel cloneModel = new CustomerModel();
+            
+            cloneModel.No = No;
+            cloneModel.Name = Name;
+            cloneModel.Surname = Surname;
+            cloneModel.Phone = Phone;
+            cloneModel.Address = Address;
+            cloneModel.Id = Id;
+
+            return cloneModel;
+
+        }
+
     }
 }

@@ -58,6 +58,7 @@ namespace RestaurantApp.Command.Customers
                         }
 
                         // STEP 4: SET Situation TO NORMAL
+                        viewModel.SelectedCustomer = null;
                         viewModel.CurrentCustomer = new CustomerModel();
                         viewModel.CurrentSituation = (int)Situation.NORMAL;
                        

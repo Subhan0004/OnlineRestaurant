@@ -73,7 +73,7 @@
 
             <ListView x:Name="MainList" 
                       ItemsSource="{Binding Path=Customers}"
-                      SelectedItem="{Binding Path=CurrentCustomer, Mode=TwoWay}"
+                      SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"
                       Grid.Row="1" Style="{StaticResource listViewCustom}">
                 <ListView.View>
                     <GridView>

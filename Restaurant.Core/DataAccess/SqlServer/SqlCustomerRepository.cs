@@ -70,7 +70,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
 
                 string cmdText = @"Update Customers set Name=@Name, Surname=@Surname, Address=@Address,
                                   Phone=@Phone, Note=@Note, CreatorId=@CreatorId, 
-                                  LastModifiedDate=@LastModifiedDate, IsDeleted=@IsDeleted";
+                                  LastModifiedDate=@LastModifiedDate, IsDeleted=@IsDeleted where Id=@Id";
 
                 using (SqlCommand cmd = new SqlCommand(cmdText, connection))
                 {
@@ -82,7 +82,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
                 }
             }
         }
-
+         
         private Customer GetFromReader(SqlDataReader reader)
         {
             Customer customer = new Customer();

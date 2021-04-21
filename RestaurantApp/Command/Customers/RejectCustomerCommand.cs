@@ -1,4 +1,5 @@
 ﻿using RestaurantApp.Enums;
+using RestaurantApp.Models;
 using RestaurantApp.ViewModels.UserControls;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace RestaurantApp.Command.Customers
 
         public override void Execute(object parameter)
         {
+            viewModel.SelectedCustomer = null;
             viewModel.CurrentSituation = (int)Situation.NORMAL;
+            viewModel.CurrentCustomer = new CustomerModel();
         }
     }
 }
