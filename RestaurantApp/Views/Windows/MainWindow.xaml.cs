@@ -65,10 +65,11 @@ namespace RestaurantApp
             }
             else
             {
-                doubleAnimation.Duration = TimeSpan.FromMilliseconds(childCount * 250);
-                doubleAnimation.EasingFunction = ease;
-                grid.BeginAnimation(HeightProperty, doubleAnimation);
+                doubleAnimation.To = childCount * 30;
             }
+            doubleAnimation.Duration = TimeSpan.FromMilliseconds(childCount * 150);
+            doubleAnimation.EasingFunction = ease;
+            grid.BeginAnimation(HeightProperty, doubleAnimation);
         }
     }
 }
