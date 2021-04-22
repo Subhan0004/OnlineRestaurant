@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\Categories\BaseCategoryCommand.cs" />
+    <Compile Include="Command\Categories\DeleteCategoryCommand.cs" />
+    <Compile Include="Command\Categories\RejectCategoryCommand.cs" />
+    <Compile Include="Command\Categories\SaveCategoryCommand.cs" />
     <Compile Include="Command\Customers\BaseCustomerCommand.cs" />
     <Compile Include="Command\Customers\DeleteCustomerCommand.cs" />
     <Compile Include="Command\Customers\RejectCustomerCommand.cs" />

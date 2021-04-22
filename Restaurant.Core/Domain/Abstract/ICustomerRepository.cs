@@ -12,5 +12,7 @@ namespace Restaurant.Core.Domain.Abstract
         int Add(Customer customer);
         bool Update(Customer customer);
         List<Customer> Get();
+        void Update(Category customer);
+        int Add(Category category);
     }
 }
