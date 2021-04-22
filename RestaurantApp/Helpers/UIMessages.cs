@@ -8,6 +8,7 @@ namespace RestaurantApp.Helpers
 {
     public static class UIMessages
     {
+        public static string DeleteSureMessage = "Are you sure you want to delete";
         public static string ErrorMessage = "Telefon nümrəsi düzgün formatda deyil. Düzgün format:++99450XXXXXXX. (Dəstəklənən prefikslər: 50,51,55,70,77,99)";
        
         public static string GetRequiredMessage(string propName)

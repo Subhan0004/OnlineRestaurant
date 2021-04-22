@@ -1,0 +1,49 @@
+﻿<Window x:Class="RestaurantApp.Views.Components.SureDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestaurantApp.Views.Components"
+        mc:Ignorable="d"
+        Height="200" Width="400"
+        WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" Background="Transparent">
+        
+    <Border BorderThickness="3" BorderBrush="Black" 
+
+            CornerRadius="20" Background="Purple">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Viewbox>
+                <TextBlock Text="{Binding DialogText}" Width="450" 
+                           FontSize="40" TextWrapping="Wrap" Foreground="White"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           TextAlignment="Center" />
+            </Viewbox>
+
+            <Viewbox Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Bəli" x:Name="Yes" Foreground="White" FontWeight="Bold"
+
+                            Margin="1" HorizontalAlignment="Left" 
+
+                            VerticalAlignment="Top" Width="55" 
+
+                            Click="YesClick" Background="#FF118000"/>
+                    <Button Content="Xeyr" x:Name="No" Foreground="White" FontWeight="Bold"
+
+                            Margin="1" HorizontalAlignment="Left" 
+
+                            VerticalAlignment="Top" Width="55" 
+
+                            Click="NoClick" IsCancel="True" Background="#FFBF0000"/>
+                </StackPanel>
+            </Viewbox>
+        </Grid>
+    </Border>
+</Window>
