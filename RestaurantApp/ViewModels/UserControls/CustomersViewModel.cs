@@ -62,7 +62,6 @@ namespace RestaurantApp.ViewModels.UserControls
         }
 
 
-
         public SaveCustomerCommand Save => new SaveCustomerCommand(this);
 
         public RejectCustomerCommand Reject => new RejectCustomerCommand(this);

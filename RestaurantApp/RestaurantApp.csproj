@@ -73,6 +73,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SureDialogViewModel.cs" />
     <Compile Include="ViewModels\UserControls\CategoriesViewModel.cs" />
     <Compile Include="ViewModels\UserControls\CustomersViewModel.cs" />
     <Compile Include="Views\Components\ControlHeader.xaml.cs">
@@ -80,6 +81,9 @@
     </Compile>
     <Compile Include="Views\Components\FormButtons.xaml.cs">
       <DependentUpon>FormButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\SureDialog.xaml.cs">
+      <DependentUpon>SureDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
@@ -114,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Components\FormButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\SureDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
