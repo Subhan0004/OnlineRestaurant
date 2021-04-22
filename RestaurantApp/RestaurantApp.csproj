@@ -69,8 +69,10 @@
     <Compile Include="Helpers\ModelValidatorHelper.cs" />
     <Compile Include="Helpers\UIMessages.cs" />
     <Compile Include="Mapper\BaseMapper.cs" />
+    <Compile Include="Mapper\CategoryMapper.cs" />
     <Compile Include="Mapper\CustomerMapper.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\UserControls\CategoriesViewModel.cs" />
