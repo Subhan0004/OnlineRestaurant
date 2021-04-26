@@ -1,4 +1,5 @@
 ﻿using Restaurant.Core.Domain.Entities;
+using RestaurantApp.Helpers;
 using RestaurantApp.Mapper;
 using RestaurantApp.Models;
 using RestaurantApp.ViewModels;
@@ -27,29 +28,24 @@ namespace RestaurantApp.Command.MainPage
             List<CustomerModel> customerModels = new List<CustomerModel>();
             CustomerMapper mapper = new CustomerMapper();
 
-            for(int i = 0; i< customers.Count; i++)
+            foreach(var customer in customers)
             {
-                Customer customer = customers[i];
                 CustomerModel model = mapper.Map(customer);
-                
-                model.No = i + 1;
-                
+               
                 customerModels.Add(model);
 
             }
 
-            CustomersViewModel customersViewModel = new CustomersViewModel();
+            EnumerationUtil.Enumerate(customerModels);
 
+            CustomersViewModel customersViewModel = new CustomersViewModel();
             customersViewModel.Customers = new ObservableCollection<CustomerModel>(customerModels);
 
             CustomersControl customersControl = new CustomersControl();
-
             customersControl.DataContext = customersViewModel;
 
             MainWindow mainWindow = (MainWindow)mainViewModel.Window;
-
             mainWindow.GrdCenter.Children.Clear();
-
             mainWindow.GrdCenter.Children.Add(customersControl);
 
         }

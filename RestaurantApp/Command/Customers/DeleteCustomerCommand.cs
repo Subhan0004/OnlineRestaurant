@@ -9,9 +9,11 @@ using RestaurantApp.ViewModels.UserControls;
 using RestaurantApp.Views.Components;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RestaurantApp.Command.Customers
 {
@@ -43,10 +45,19 @@ namespace RestaurantApp.Command.Customers
 
                 DB.CustomerRepository.Update(customer);
 
+                int no = viewModel.SelectedCustomer.No;
+
                 viewModel.CurrentSituation = (int)Situation.NORMAL;
                 viewModel.Customers.Remove(viewModel.SelectedCustomer);
+
+                List<CustomerModel> modelList = viewModel.Customers.ToList();
+                EnumerationUtil.Enumerate(modelList, no - 1);
+                viewModel.Customers = new ObservableCollection<CustomerModel>(modelList);
+
                 viewModel.SelectedCustomer = null;
                 viewModel.CurrentCustomer = new CustomerModel();
+
+                MessageBox.Show(UIMessages.OperationSuccessMessage, "Ínformation", MessageBoxButton.OK, MessageBoxImage.Information);
 
 
             }

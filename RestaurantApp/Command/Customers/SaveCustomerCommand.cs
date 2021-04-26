@@ -1,6 +1,7 @@
 ﻿using Restaurant.Core;
 using Restaurant.Core.Domain.Entities;
 using RestaurantApp.Enums;
+using RestaurantApp.Helpers;
 using RestaurantApp.Mapper;
 using RestaurantApp.Models;
 using RestaurantApp.ViewModels.UserControls;
@@ -49,6 +50,7 @@ namespace RestaurantApp.Command.Customers
                         if (customer.Id != 0)
                         {
                             DB.CustomerRepository.Update(customer);
+                            viewModel.Customers[viewModel.CurrentCustomer.No - 1] = viewModel.CurrentCustomer;
                         }
                         else
                         {
@@ -61,11 +63,13 @@ namespace RestaurantApp.Command.Customers
                         viewModel.SelectedCustomer = null;
                         viewModel.CurrentCustomer = new CustomerModel();
                         viewModel.CurrentSituation = (int)Situation.NORMAL;
+
+                        MessageBox.Show(UIMessages.OperationSuccessMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                        
                     }
                     else
                     {
-                        MessageBox.Show(message, "Validasiya xətası", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(message, UIMessages.ValidationCommonMessage, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
                 }
