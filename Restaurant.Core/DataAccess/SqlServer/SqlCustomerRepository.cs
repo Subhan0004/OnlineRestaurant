@@ -119,5 +119,15 @@ namespace Restaurant.Core.DataAccess.SqlServer
             cmd.Parameters.AddWithValue("@LastModifiedDate", customer.LastModifiedDate);
             cmd.Parameters.AddWithValue("@IsDeleted", customer.IsDeleted);
         }
+
+        public void Update(Category customer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Add(Category category)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
