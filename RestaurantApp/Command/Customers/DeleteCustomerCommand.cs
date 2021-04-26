@@ -58,8 +58,6 @@ namespace RestaurantApp.Command.Customers
                 viewModel.CurrentCustomer = new CustomerModel();
 
                 MessageBox.Show(UIMessages.OperationSuccessMessage, "Ínformation", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
             }
         }
     }

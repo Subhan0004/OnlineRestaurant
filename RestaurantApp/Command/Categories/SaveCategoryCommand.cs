@@ -27,7 +27,6 @@ namespace RestaurantApp.Command.Categories
             {
                 viewModel.CurrentSituation = (int)Situation.ADD;
             }
-
             else if (viewModel.CurrentSituation == (int)Situation.SELECTED)
             {
                 viewModel.CurrentSituation = (int)Situation.EDIT;
@@ -39,7 +38,6 @@ namespace RestaurantApp.Command.Categories
                     // STEP 1: VALIDATE MODEL DATA
                     if (viewModel.CurrentCategory.IsValid(out string message))
                     {
-
                         // STEP 2: CREATE CategoryEntity FROM CategoryModel
                         CategoryMapper categoryMapper = new CategoryMapper();
                         Category category = categoryMapper.Map(viewModel.CurrentCategory);
@@ -64,14 +62,11 @@ namespace RestaurantApp.Command.Categories
                         viewModel.CurrentSituation = (int)Situation.NORMAL;
 
                         MessageBox.Show(UIMessages.OperationSuccessMessage, "Məlumat", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
                     }
                     else
                     {
                         MessageBox.Show(message, UIMessages.ValidationCommonMessage, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-
                 }
             }
         }

@@ -49,7 +49,6 @@ namespace RestaurantApp.ViewModels.UserControls
             }
         }
 
-
         private ObservableCollection<CustomerModel> _customer;
         public ObservableCollection<CustomerModel> Customers
         {
@@ -61,13 +60,10 @@ namespace RestaurantApp.ViewModels.UserControls
             }
         }
 
-
         public SaveCustomerCommand Save => new SaveCustomerCommand(this);
 
         public RejectCustomerCommand Reject => new RejectCustomerCommand(this);
 
         public DeleteCustomerCommand Delete => new DeleteCustomerCommand(this);
-
-
     }
 }

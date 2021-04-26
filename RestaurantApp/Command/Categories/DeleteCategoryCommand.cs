@@ -33,7 +33,6 @@ namespace RestaurantApp.Command.Categories
             dialog.DataContext = sureViewModel;
             dialog.ShowDialog();
 
-
             if (dialog.DialogResult == true)
             {
                 CategoryMapper mapper = new CategoryMapper();

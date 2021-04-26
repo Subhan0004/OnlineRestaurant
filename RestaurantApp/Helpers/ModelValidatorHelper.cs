@@ -29,7 +29,6 @@ namespace RestaurantApp.Helpers
                     continue;
 
                 return false;
-
             }
 
             return true;

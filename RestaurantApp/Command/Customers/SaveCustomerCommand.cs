@@ -27,12 +27,10 @@ namespace RestaurantApp.Command.Customers
             {
                 viewModel.CurrentSituation = (int)Situation.ADD;
             }
-            
             else if (viewModel.CurrentSituation == (int)Situation.SELECTED)
             {
                 viewModel.CurrentSituation = (int)Situation.EDIT;
             }
-           
             else
             {
                 if(viewModel.CurrentSituation==(int)Situation.ADD || viewModel.CurrentSituation == (int)Situation.EDIT)
@@ -40,7 +38,6 @@ namespace RestaurantApp.Command.Customers
                     // STEP 1: VALIDATE MODEL DATA
                     if(viewModel.CurrentCustomer.IsValid(out string message))
                     {
-
                         // STEP 2: CREATE CustomerEntity FROM CustomerModel
                         CustomerMapper customerMapper = new CustomerMapper();
                         Customer customer = customerMapper.Map(viewModel.CurrentCustomer);
@@ -65,7 +62,6 @@ namespace RestaurantApp.Command.Customers
                         viewModel.CurrentSituation = (int)Situation.NORMAL;
 
                         MessageBox.Show(UIMessages.OperationSuccessMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                       
                     }
                     else
                     {
