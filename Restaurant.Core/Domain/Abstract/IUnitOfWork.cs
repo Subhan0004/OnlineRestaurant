@@ -12,5 +12,6 @@ namespace Restaurant.Core.Domain.Abstract
         
         ICustomerRepository CustomerRepository { get; }
         IUserRepository UserRepository { get; }
+        ICategoryRepository CategoryRepository { get; }
     }
 }

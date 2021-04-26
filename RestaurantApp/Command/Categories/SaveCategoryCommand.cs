@@ -1,6 +1,7 @@
 ﻿using Restaurant.Core;
 using Restaurant.Core.Domain.Entities;
 using RestaurantApp.Enums;
+using RestaurantApp.Helpers;
 using RestaurantApp.Mapper;
 using RestaurantApp.Models;
 using RestaurantApp.ViewModels.UserControls;
@@ -39,19 +40,20 @@ namespace RestaurantApp.Command.Categories
                     if (viewModel.CurrentCategory.IsValid(out string message))
                     {
 
-                        // STEP 2: CREATE CustomerEntity FROM CustomerModel
+                        // STEP 2: CREATE CategoryEntity FROM CategoryModel
                         CategoryMapper categoryMapper = new CategoryMapper();
                         Category category = categoryMapper.Map(viewModel.CurrentCategory);
                         category.Creator = Kernel.CurrentUser;
 
-                        // STEP 3: SAVE CustomerEntity to database
+                        // STEP 3: SAVE CategoryEntity to database
                         if (category.Id != 0)
                         {
-                            DB.CustomerRepository.Update(category);
+                            DB.CategoryRepository.Update(category);
+                            viewModel.Categories[viewModel.CurrentCategory.No - 1] = viewModel.CurrentCategory;
                         }
                         else
                         {
-                            viewModel.CurrentCategory.Id = DB.CustomerRepository.Add(category);
+                            viewModel.CurrentCategory.Id = DB.CategoryRepository.Add(category);
                             viewModel.CurrentCategory.No = viewModel.Categories.Count + 1;
                             viewModel.Categories.Add(viewModel.CurrentCategory);
                         }
@@ -61,10 +63,13 @@ namespace RestaurantApp.Command.Categories
                         viewModel.CurrentCategory = new CategoryModel();
                         viewModel.CurrentSituation = (int)Situation.NORMAL;
 
+                        MessageBox.Show(UIMessages.OperationSuccessMessage, "Məlumat", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
                     }
                     else
                     {
-                        MessageBox.Show(message, "Validasiya xətası", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(message, UIMessages.ValidationCommonMessage, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
                 }

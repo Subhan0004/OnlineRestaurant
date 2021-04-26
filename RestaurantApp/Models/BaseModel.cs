@@ -9,7 +9,6 @@ namespace RestaurantApp.Models
     public class BaseModel
     {
         public int No { get; set; }
-
         public int Id { get; set; }
     }
 }

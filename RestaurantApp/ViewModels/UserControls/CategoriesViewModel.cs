@@ -1,4 +1,5 @@
 ﻿using RestaurantApp.Command.Categories;
+using RestaurantApp.Enums;
 using RestaurantApp.Models;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace RestaurantApp.ViewModels.UserControls
             {
                 currentCategory = value;
                 OnPropertyChanged(nameof(CurrentCategory));
+               
             }
         }
 
@@ -37,24 +39,28 @@ namespace RestaurantApp.ViewModels.UserControls
             {
                 selectedCategory = value;
                 OnPropertyChanged(nameof(SelectedCategory));
+
+                CurrentCategory = selectedCategory?.Clone();
+                if (SelectedCategory != null)
+                {
+                    CurrentSituation = (int)Situation.SELECTED;
+                }
             }
         }
 
-        private ObservableCollection<CategoryModel> _categories;
+        private ObservableCollection<CategoryModel> categories = new ObservableCollection<CategoryModel>();
         public ObservableCollection<CategoryModel> Categories
         {
-            get => _categories;
+            get => categories;
             set
             {
-                _categories = value;
+                categories = value;
                 OnPropertyChanged(nameof(Categories));
             }
         }
 
         public SaveCategoryCommand Save => new SaveCategoryCommand(this);
-
         public RejectCategoryCommand Reject => new RejectCategoryCommand(this);
-
         public DeleteCategoryCommand Delete => new DeleteCategoryCommand(this);
 
     }

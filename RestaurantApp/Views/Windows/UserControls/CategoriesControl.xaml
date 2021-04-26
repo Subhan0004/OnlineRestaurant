@@ -37,8 +37,8 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1">
-                            <TextBox Height="30" Width="250"   VerticalContentAlignment="Center" Margin="10"></TextBox>
-                            <TextBox Height="60" Width="250"  Margin="10"></TextBox>
+                            <TextBox Height="30" Width="250" Text="{Binding Path=CurrentCategory.Name}"  VerticalContentAlignment="Center" Margin="10"></TextBox>
+                            <TextBox Height="60" Width="250" Text="{Binding Path=CurrentCategory.Note}"  Margin="10"></TextBox>
                         </StackPanel>
 
                     </Grid>
@@ -48,12 +48,15 @@
                 </Grid>
             </StackPanel>
 
-            <ListView x:Name="MainList" Grid.Row="1" Style="{StaticResource listViewCustom}">
+            <ListView x:Name="MainList" Grid.Row="1"
+                      ItemsSource="{Binding Path=Categories}"
+                      SelectedItem="{Binding Path=SelectedCategory, Mode=TwoWay}"
+                      Style="{StaticResource listViewCustom}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="No" Width="30"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Name" Width="350"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=X}" Header="Note" Width="600"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=No}" Header="No" Width="30"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="350"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Note}" Header="Note" Width="600"/>
                     </GridView>
                     
                 </ListView.View>

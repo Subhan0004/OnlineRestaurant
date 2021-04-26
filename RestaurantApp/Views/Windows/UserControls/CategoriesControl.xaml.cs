@@ -24,5 +24,7 @@ namespace RestaurantApp.Views.Windows.UserControls
         {
             InitializeComponent();
         }
+
+       
     }
 }

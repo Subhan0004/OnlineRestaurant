@@ -17,7 +17,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
         }
 
         public ICustomerRepository CustomerRepository => new SqlCustomerRepository(context);
-
+        public ICategoryRepository CategoryRepository => new SqlCategoryRepository(context); 
         public IUserRepository UserRepository => new SqlUserRepository(context);
       
         public bool CheckServer()

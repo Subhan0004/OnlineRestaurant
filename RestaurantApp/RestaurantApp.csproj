@@ -69,6 +69,7 @@
     <Compile Include="Command\MainPage\OpenCategoriesCommand.cs" />
     <Compile Include="Command\MainPage\OpenCustomersCommand.cs" />
     <Compile Include="Enums\Situation.cs" />
+    <Compile Include="Helpers\EnumerationUtil.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Helpers\ModelValidatorHelper.cs" />
     <Compile Include="Helpers\UIMessages.cs" />

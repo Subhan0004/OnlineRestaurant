@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Core.Domain.Abstract
 {
-    public interface ICustomerRepository
+    public interface  ICategoryRepository
     {
-        int Add(Customer customer);
-        bool Update(Customer customer);
-        List<Customer> Get();
-       
+        int Add(Category category);
+        bool Update(Category category);
+        List<Category> Get();
+     
     }
 }

@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="DataAccess\SqlServer\SqlBaseRepository.cs" />
+    <Compile Include="DataAccess\SqlServer\SqlCategoryRepository.cs" />
     <Compile Include="DataAccess\SqlServer\SqlContext.cs" />
     <Compile Include="DataAccess\SqlServer\SqlCustomerRepository.cs" />
     <Compile Include="DataAccess\SqlServer\SqlUnitOfWork.cs" />
     <Compile Include="DataAccess\SqlServer\SqlUserRepository.cs" />
+    <Compile Include="Domain\Abstract\ICategoryRepository.cs" />
     <Compile Include="Domain\Abstract\ICustomerRepository.cs" />
     <Compile Include="Domain\Abstract\IUnitOfWork.cs" />
     <Compile Include="Domain\Abstract\IUserRepository.cs" />

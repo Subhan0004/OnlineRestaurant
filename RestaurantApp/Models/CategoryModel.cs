@@ -40,10 +40,11 @@ namespace RestaurantApp.Models
         public CategoryModel Clone()
         {
             CategoryModel cloneModel = new CategoryModel();
-
-            cloneModel.No = No;
+            
             cloneModel.Name = Name;
+            cloneModel.No = No;
             cloneModel.Id = Id;
+            cloneModel.Note = Note;
 
             return cloneModel;
 
