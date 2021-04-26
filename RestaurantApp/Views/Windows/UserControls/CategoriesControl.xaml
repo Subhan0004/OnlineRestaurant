@@ -20,8 +20,8 @@
 
                 <Grid Background="LightGray">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0" Style="{StaticResource grdForm}" Background="SlateGray" Margin="0 0 10 0">
