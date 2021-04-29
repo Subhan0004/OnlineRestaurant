@@ -52,7 +52,9 @@ namespace RestaurantApp.Command.Customers
 
                 List<CustomerModel> modelList = viewModel.Customers.ToList();
                 EnumerationUtil.Enumerate(modelList, no - 1);
-                viewModel.Customers = new ObservableCollection<CustomerModel>(modelList);
+
+                viewModel.AllCustomers = modelList;
+                viewModel.UpdateDataFiltered();
 
                 viewModel.SelectedCustomer = null;
                 viewModel.CurrentCustomer = new CustomerModel();

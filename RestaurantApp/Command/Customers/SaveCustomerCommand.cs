@@ -47,14 +47,21 @@ namespace RestaurantApp.Command.Customers
                         if (customer.Id != 0)
                         {
                             DB.CustomerRepository.Update(customer);
-                            viewModel.Customers[viewModel.CurrentCustomer.No - 1] = viewModel.CurrentCustomer;
+
+                            CustomerModel updateModels = viewModel.AllCustomers.FirstOrDefault(x => x.Id == viewModel.CurrentCustomer.Id);
+                            int updateIndex = viewModel.AllCustomers.IndexOf(updateModels);
+                            viewModel.AllCustomers[updateIndex] = viewModel.CurrentCustomer;
                         }
                         else
                         {
                            viewModel.CurrentCustomer.Id = DB.CustomerRepository.Add(customer);
                            viewModel.CurrentCustomer.No = viewModel.Customers.Count + 1;
-                           viewModel.Customers.Add(viewModel.CurrentCustomer);
+
+                           viewModel.AllCustomers.Add(viewModel.CurrentCustomer);
+                         
                         }
+
+                        viewModel.UpdateDataFiltered();
 
                         // STEP 4: SET Situation TO NORMAL
                         viewModel.SelectedCustomer = null;

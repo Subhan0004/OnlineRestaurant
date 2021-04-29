@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace RestaurantApp.Views.Components
 {
     /// <summary>
-    /// Interaction logic for Search.xaml
+    /// Interaction logic for Excel.xaml
     /// </summary>
-    public partial class Search : UserControl
+    public partial class Excel : UserControl
     {
-        public Search()
+        public Excel()
         {
             InitializeComponent();
         }
-
-       
     }
 }

@@ -30,6 +30,17 @@ namespace RestaurantApp.ViewModels.UserControls
             }
         }
 
+        private List<CustomerModel> allCustomers;
+        public List<CustomerModel> AllCustomers
+        {
+            get => allCustomers;
+            set
+            {
+                allCustomers = value;
+                OnPropertyChanged(nameof(AllCustomers));
+            }
+        }
+
         private CustomerModel selectedCustomer;
         public CustomerModel SelectedCustomer
         {
@@ -49,6 +60,19 @@ namespace RestaurantApp.ViewModels.UserControls
             }
         }
 
+        private string searchText = string.Empty;
+        public string SearchText
+        {
+            get => searchText;
+            set
+            {
+                searchText = value;
+                OnPropertyChanged(nameof(SearchText));
+                UpdateDataFiltered();
+
+            }
+        }
+
         private ObservableCollection<CustomerModel> _customer;
         public ObservableCollection<CustomerModel> Customers
         {
@@ -65,5 +89,36 @@ namespace RestaurantApp.ViewModels.UserControls
         public RejectCustomerCommand Reject => new RejectCustomerCommand(this);
 
         public DeleteCustomerCommand Delete => new DeleteCustomerCommand(this);
+
+        public ExportExcelCustomerCommand ExportExcel => new ExportExcelCustomerCommand(this);
+
+        public void UpdateDataFiltered()
+        {
+            IEnumerable<CustomerModel> filteredCustomers = null;
+
+            if (string.IsNullOrWhiteSpace(SearchText))
+            {
+                filteredCustomers = AllCustomers;
+            }
+            else
+            {
+                string lowerSearchText = SearchText.ToLower();
+
+                filteredCustomers = AllCustomers.Where(x =>
+                    x.Name.ToLower().Contains(lowerSearchText) ||
+                    x.Surname.ToLower().Contains(SearchText) ||
+                    x.Phone.ToLower().Contains(SearchText) ||
+                    (x.Note != null &&  x.Note.ToLower().Contains(SearchText)));
+
+                Customers.Clear();
+
+                foreach (var item in filteredCustomers)
+                {
+                    Customers.Add(item);
+                }
+            }
+
+            
+        }
     }
 }

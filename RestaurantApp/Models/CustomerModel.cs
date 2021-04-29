@@ -1,4 +1,5 @@
-﻿using RestaurantApp.Helpers;
+﻿using RestaurantApp.Attributes;
+using RestaurantApp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,19 @@ namespace RestaurantApp.Models
 {
     public class CustomerModel : BaseModel
     {
-        
+        [Export(Name ="Ad", ColumnNo = 1)]
         public string Name { get; set; }
 
+        [Export(Name = "Soyad", ColumnNo = 2)]
         public string Surname { get; set; }
 
+        [Export(Name = "Telefon", ColumnNo = 3)]
         public string Phone { get; set; }
 
+        [Export(Name = "Ünvan", ColumnNo = 4)]
         public string Address { get; set; }
 
+        [Export(Name = "Qeyd", ColumnNo = 5)]
         public string Note { get; set; }
 
         public bool IsValid(out string message)

@@ -48,6 +48,7 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
@@ -83,13 +84,14 @@
     <Compile Include="Command\Categories\SaveCategoryCommand.cs" />
     <Compile Include="Command\Customers\BaseCustomerCommand.cs" />
     <Compile Include="Command\Customers\DeleteCustomerCommand.cs" />
+    <Compile Include="Command\Customers\ExportExcelCustomerCommand.cs" />
     <Compile Include="Command\Customers\RejectCustomerCommand.cs" />
     <Compile Include="Command\Customers\SaveCustomerCommand.cs" />
     <Compile Include="Command\MainPage\OpenCategoriesCommand.cs" />
     <Compile Include="Command\MainPage\OpenCustomersCommand.cs" />
     <Compile Include="Enums\Situation.cs" />
     <Compile Include="Helpers\EnumerationUtil.cs" />
-    <Compile Include="Helpers\ExcelExport.cs" />
+    <Compile Include="Helpers\ExcelExporter.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Helpers\ModelValidatorHelper.cs" />
     <Compile Include="Helpers\UIMessages.cs" />
@@ -106,8 +108,8 @@
     <Compile Include="Views\Components\ControlHeader.xaml.cs">
       <DependentUpon>ControlHeader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Components\Exel.xaml.cs">
-      <DependentUpon>Exel.xaml</DependentUpon>
+    <Compile Include="Views\Components\Excel.xaml.cs">
+      <DependentUpon>Excel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\FormButtons.xaml.cs">
       <DependentUpon>FormButtons.xaml</DependentUpon>
@@ -150,7 +152,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Components\Exel.xaml">
+    <Page Include="Views\Components\Excel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
