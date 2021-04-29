@@ -49,9 +49,10 @@ namespace RestaurantApp.Command.Categories
                 viewModel.Categories.Remove(viewModel.SelectedCategory);
 
                 List<CategoryModel> modelList = viewModel.Categories.ToList();
-
                 EnumerationUtil.Enumerate(modelList, no - 1);
-                viewModel.Categories = new ObservableCollection<CategoryModel>(modelList);
+
+                viewModel.AllCategories = modelList;
+                viewModel.UpdateDataFiltered();
 
                 viewModel.SelectedCategory = null;
                 viewModel.CurrentCategory = new CategoryModel();

@@ -53,8 +53,9 @@ namespace RestaurantApp.Command.Categories
                         {
                             viewModel.CurrentCategory.Id = DB.CategoryRepository.Add(category);
                             viewModel.CurrentCategory.No = viewModel.Categories.Count + 1;
-                            viewModel.Categories.Add(viewModel.CurrentCategory);
+                            viewModel.AllCategories.Add(viewModel.CurrentCategory);
                         }
+                        viewModel.UpdateDataFiltered();
 
                         // STEP 4: SET Situation TO NORMAL
                         viewModel.SelectedCategory = null;

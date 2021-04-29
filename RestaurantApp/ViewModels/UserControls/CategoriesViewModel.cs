@@ -16,6 +16,7 @@ namespace RestaurantApp.ViewModels.UserControls
         {
 
         }
+
         public override string Header => "Categories";
 
         private CategoryModel currentCategory = new CategoryModel();
@@ -31,11 +32,11 @@ namespace RestaurantApp.ViewModels.UserControls
         }
 
         private CategoryModel selectedCategory = new CategoryModel();
-        public CategoryModel SelectedCategory 
+        public CategoryModel SelectedCategory
         {
             get => selectedCategory;
 
-            set 
+            set
             {
                 selectedCategory = value;
                 OnPropertyChanged(nameof(SelectedCategory));
@@ -45,6 +46,55 @@ namespace RestaurantApp.ViewModels.UserControls
                 {
                     CurrentSituation = (int)Situation.SELECTED;
                 }
+            }
+        }
+
+        private List<CategoryModel> allCategories;
+        public List<CategoryModel> AllCategories 
+        {
+            get => allCategories;
+            set 
+            {
+                allCategories = value;
+                OnPropertyChanged(nameof(AllCategories));
+            }
+        }
+
+        private string searchText = string.Empty;
+        public string SearchText 
+        {
+            get => searchText;
+            set 
+            {
+                searchText = value;
+                OnPropertyChanged(nameof(SearchText));
+                UpdateDataFiltered();
+            }
+        }
+
+        public void UpdateDataFiltered() 
+        {
+            IEnumerable<CategoryModel> filteredCategories = null;
+
+            if (string.IsNullOrWhiteSpace(SearchText))
+            {
+                filteredCategories = AllCategories;
+            }
+            else
+            {
+                string lowerSearchText = SearchText.ToLower();
+
+                filteredCategories = AllCategories.Where(x =>
+                        x.Name.ToLower().Contains(lowerSearchText) ||
+                        x.Note.ToLower().Contains(lowerSearchText) ||
+                        (x.Note != null && x.Note.ToLower().Contains(lowerSearchText)));
+            }
+
+            Categories.Clear();
+
+            foreach (var item in filteredCategories)
+            {
+                Categories.Add(item);
             }
         }
 
@@ -62,6 +112,7 @@ namespace RestaurantApp.ViewModels.UserControls
         public SaveCategoryCommand Save => new SaveCategoryCommand(this);
         public RejectCategoryCommand Reject => new RejectCategoryCommand(this);
         public DeleteCategoryCommand Delete => new DeleteCategoryCommand(this);
+        public ExportExcelCategoryCommand ExportExcel => new ExportExcelCategoryCommand(this);
 
     }
 }

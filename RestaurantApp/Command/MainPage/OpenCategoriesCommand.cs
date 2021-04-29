@@ -38,6 +38,8 @@ namespace RestaurantApp.Command.MainPage
             EnumerationUtil.Enumerate(categoryModels);
 
             CategoriesViewModel categoriesViewModel = new CategoriesViewModel();
+
+            categoriesViewModel.AllCategories = categoryModels;
             categoriesViewModel.Categories = new ObservableCollection<CategoryModel>(categoryModels);
 
             CategoriesControl categoriesControl = new CategoriesControl();

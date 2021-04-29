@@ -62,11 +62,12 @@
                 </ListView.View>
             </ListView>
 
-            <!--<Grid Grid.Row="2" Style="{StaticResource grdSearch}">
+            <Grid Grid.Row="2" Style="{StaticResource grdSearch}">
                 <DockPanel>
                     <components:Search/>
+                    <components:Exel/>
                 </DockPanel>
-            </Grid>-->
+            </Grid>
             
         </Grid>
     </Border>
