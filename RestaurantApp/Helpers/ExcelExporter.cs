@@ -1,5 +1,6 @@
 ﻿using ClosedXML.Excel;
 using Microsoft.Win32;
+using RestaurantApp.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,17 +30,29 @@ namespace RestaurantApp.Helpers
                     DataTable dataTable = new DataTable();
 
                     Type type = typeof(T);
-                    PropertyInfo[] propertyInfos = type.GetProperties();
+                    Type attributeType = typeof(ExportAttribute);
 
-                    foreach(var propertyInfo in propertyInfos)
+                    PropertyInfo[] allPropertyInfos = type.GetProperties();
+
+                    List<PropertyInfo> exportedPropertyInfos = new List<PropertyInfo>();
+
+                    foreach(var propertyInfo in allPropertyInfos)
                     {
-                        dataTable.Columns.Add(propertyInfo.Name);
+                       ExportAttribute exportAttribute= (ExportAttribute) propertyInfo.GetCustomAttribute(attributeType);
+                       
+                        if(exportAttribute!= null)
+                        {
+                            exportedPropertyInfos.Add(propertyInfo);
+                            dataTable.Columns.Add(exportAttribute.Name);
+                        }
+                       
                     }
                     
                     foreach (var item in list)
                     {
                         List<object> values = new List<object>();
-                        foreach(var propertyInfo in propertyInfos)
+
+                        foreach(var propertyInfo in exportedPropertyInfos)
                         {
                             object value = propertyInfo.GetValue(item);
                             values.Add(value);

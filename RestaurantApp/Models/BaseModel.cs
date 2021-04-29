@@ -9,7 +9,7 @@ namespace RestaurantApp.Models
 {
     public class BaseModel
     {
-        [Export(Name = "№")]
+        [Export(Name = "№", ColumnNo = 0)]
         public int No { get; set; }
 
         public int Id { get; set; }

@@ -10,19 +10,19 @@ namespace RestaurantApp.Models
 {
     public class CustomerModel : BaseModel
     {
-        [Export(Name ="Ad")]
+        [Export(Name ="Ad", ColumnNo = 1)]
         public string Name { get; set; }
 
-        [Export(Name = "Soyad")]
+        [Export(Name = "Soyad", ColumnNo = 2)]
         public string Surname { get; set; }
 
-        [Export(Name = "Telefon")]
+        [Export(Name = "Telefon", ColumnNo = 3)]
         public string Phone { get; set; }
 
-        [Export(Name = "Ünvan")]
+        [Export(Name = "Ünvan", ColumnNo = 4)]
         public string Address { get; set; }
 
-        [Export(Name = "Qeyd")]
+        [Export(Name = "Qeyd", ColumnNo = 5)]
         public string Note { get; set; }
 
         public bool IsValid(out string message)
