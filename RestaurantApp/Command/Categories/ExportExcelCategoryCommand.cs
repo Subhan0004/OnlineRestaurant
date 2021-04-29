@@ -17,7 +17,7 @@ namespace RestaurantApp.Command.Categories
 
         public override void Execute(object parameter)
         {
-            ExcelExport.WriteToExcel(viewModel.Categories);
+            ExcelExporter.WriteToExcel(viewModel.Categories);
         }
     }
 }
