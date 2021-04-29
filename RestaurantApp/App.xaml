@@ -192,14 +192,17 @@
 
         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}" x:Key="btnExport">
             <Setter Property="Width" Value="70"/>
-            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="Green"/>
+
         </Style>
 
         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource btnExport}" x:Key="btnExcel">
             <Setter Property="Content" Value="Excel"/>
             <Setter Property="Command" Value="{Binding ExportExcel}"/>
-            <Setter Property="Background" Value="#FF008306"/>
+            <Setter Property="Foreground" Value="Green"/>
+            <Setter Property="Width" Value="300"/>
         </Style>
 
         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource btnExport}" x:Key="btnPdf">

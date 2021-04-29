@@ -35,11 +35,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,18 +76,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Attributes\ExportAttribute.cs" />
     <Compile Include="Command\Categories\BaseCategoryCommand.cs" />
     <Compile Include="Command\Categories\DeleteCategoryCommand.cs" />
     <Compile Include="Command\Categories\RejectCategoryCommand.cs" />
     <Compile Include="Command\Categories\SaveCategoryCommand.cs" />
     <Compile Include="Command\Customers\BaseCustomerCommand.cs" />
     <Compile Include="Command\Customers\DeleteCustomerCommand.cs" />
+    <Compile Include="Command\Customers\ExportExcelCustomerCommand.cs" />
     <Compile Include="Command\Customers\RejectCustomerCommand.cs" />
     <Compile Include="Command\Customers\SaveCustomerCommand.cs" />
     <Compile Include="Command\MainPage\OpenCategoriesCommand.cs" />
     <Compile Include="Command\MainPage\OpenCustomersCommand.cs" />
     <Compile Include="Enums\Situation.cs" />
     <Compile Include="Helpers\EnumerationUtil.cs" />
+    <Compile Include="Helpers\ExcelExporter.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Helpers\ModelValidatorHelper.cs" />
     <Compile Include="Helpers\UIMessages.cs" />
@@ -86,8 +107,14 @@
     <Compile Include="Views\Components\ControlHeader.xaml.cs">
       <DependentUpon>ControlHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Components\Excel.xaml.cs">
+      <DependentUpon>Excel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\FormButtons.xaml.cs">
       <DependentUpon>FormButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\SureDialog.xaml.cs">
       <DependentUpon>SureDialog.xaml</DependentUpon>
@@ -124,7 +151,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Components\Excel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Components\FormButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\Search.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -39,6 +39,8 @@ namespace RestaurantApp.Command.MainPage
             EnumerationUtil.Enumerate(customerModels);
 
             CustomersViewModel customersViewModel = new CustomersViewModel();
+
+            customersViewModel.AllCustomers = customerModels;
             customersViewModel.Customers = new ObservableCollection<CustomerModel>(customerModels);
 
             CustomersControl customersControl = new CustomersControl();
