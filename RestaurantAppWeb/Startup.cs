@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Restaurant.Core;
+using Restaurant.Core.Enums;
+using Restaurant.Core.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +16,25 @@ namespace RestaurantAppWeb
 {
     public class Startup
     {
+        private readonly IConfiguration Configuration;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            Kernel.DB = DbFactory.Create(ServerType.SqlServer, connectionString);
+            Kernel.CurrentUser = Kernel.DB.UserRepository.Get("admin");
+
+            services.AddScoped(serviceProvider =>
+            {
+                return Kernel.DB;
+            });
+
             services.AddControllersWithViews();
         }
 
