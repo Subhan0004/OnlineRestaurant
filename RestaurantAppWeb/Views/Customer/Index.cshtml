@@ -90,7 +90,7 @@
                                         <td>@item.Phone</td>
                                         <td>@item.Address </td>
                                         <td>@item.Note </td>
-                                        <td><a asp-controller="Customer" asp-action="SaveBranch" asp-route-id="@item.Id" class="btn btn-primary bgupdate" id="btnUpdate"><i class='fas fa-download'></i> Update</a></td>
+                                        <td><a asp-controller="Customer" asp-action="SaveCustomer" asp-route-id="@item.Id" class="btn btn-primary bgupdate" id="btnUpdate"><i class='fas fa-download'></i> Update</a></td>
                                         <td><button class="btn btn-danger bgdelete" onclick="ShowDeleteModal(@item.Id)" data-toggle="modal" data-id="@item.Id" data-target="#DelModal" id="btnDel"><i class='fas fa-trash-alt'></i> Delete</button></td>
                                     </tr>
                                     }
@@ -109,7 +109,7 @@
                                 </tfoot>
                             </table>
 
-                            <a class="btn btn-primary bgupdate" asp-controller="Customer" asp-action="SaveBranch" id="myBtnAdd"><i class='fas fa-download'></i> Add</a>
+                            <a class="btn btn-primary bgupdate" asp-controller="Customer" asp-action="SaveCustomer" id="myBtnAdd"><i class='fas fa-download'></i> Add</a>
 
                             <!-- The Modal -->
                             <div class="modal fade" id="DelModal">
@@ -127,7 +127,7 @@
 
                                         <div class="modal-footer">
                                             <form asp-controller="Customer" asp-action="Delete" method="post">
-                                                @*<input asp-for="DeletedId" id="deletedId" hidden />*@
+                                                <input asp-for="DeletedId" id="deletedId" hidden />
                                                 <button type="submit" class="btn btn-primary bgupdate">Yes</button>
                                                 <button type="button" class="btn btn-danger bgdelete" data-dismiss="modal">No</button>
                                             </form>

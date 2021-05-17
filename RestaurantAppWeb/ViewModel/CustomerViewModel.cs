@@ -10,5 +10,7 @@ namespace RestaurantAppWeb.ViewModel
     {
         public List<CustomerModel> Customers { get; set; } = new List<CustomerModel>();
 
+        public int DeletedId { get; set; }
+
     }
 }

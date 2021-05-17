@@ -62,6 +62,31 @@ namespace Restaurant.Core.DataAccess.SqlServer
             }
         }
 
+        public Customer Get(int id)
+        {
+            using(SqlConnection connection = new SqlConnection(context.ConnectionString))
+            {
+                connection.Open();
+
+                string cmdText = "Select * from Customers where IsDeleted = 0 and Id = @Id";
+
+                using(SqlCommand command = new SqlCommand(cmdText, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        Customer customer = GetFromReader(reader);
+
+                        return customer;
+                    }
+
+                    return null;
+                }
+            }
+        }
+
         public bool Update(Customer customer)
         {
             using (SqlConnection connection = new SqlConnection(context.ConnectionString))
@@ -118,16 +143,6 @@ namespace Restaurant.Core.DataAccess.SqlServer
             cmd.Parameters.AddWithValue("@CreatorId", customer.Creator.Id);
             cmd.Parameters.AddWithValue("@LastModifiedDate", customer.LastModifiedDate);
             cmd.Parameters.AddWithValue("@IsDeleted", customer.IsDeleted);
-        }
-
-        public void Update(Category customer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Add(Category category)
-        {
-            throw new NotImplementedException();
-        }
+        }       
     }
 }
