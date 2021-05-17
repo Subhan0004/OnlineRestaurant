@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Branches</title>
+    <title>Customers</title>
 
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/layout.css" />
@@ -48,10 +48,10 @@
                     <div class="list-group list-group-flush">
 
                         @*asp-action="Services" asp-controller="Service"*@
+                        <a class="sequence list-group-item list-group-item-action">Customers</a>
                         <a class="sequence list-group-item list-group-item-action">Categories</a>
                         <a class="sequence list-group-item list-group-item-action">Meal</a>
                         <a class="sequence list-group-item list-group-item-action">Orders</a>
-                        <a class="sequence list-group-item list-group-item-action">Customers</a>
                     </div>
                 </div>
                 <div id="content" class="col-sm-12 col-md-9 col-lg-10 col-xl-10 p-0">
@@ -126,7 +126,7 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <form asp-controller="Branch" asp-action="Delete" method="post">
+                                            <form asp-controller="Customer" asp-action="Delete" method="post">
                                                 @*<input asp-for="DeletedId" id="deletedId" hidden />*@
                                                 <button type="submit" class="btn btn-primary bgupdate">Yes</button>
                                                 <button type="button" class="btn btn-danger bgdelete" data-dismiss="modal">No</button>
@@ -146,10 +146,10 @@
         $(document).ready(function () {
             var urlEnd = window.location.pathname.split('/')[3];
             switch (window.location.pathname.split('/')[3]) {
-                case 'Branches':
+                case 'Customers':
                     {
                         $('.sequence').eq(0).addClass('active text-white');
-                        $('#content-header').text('Branches');
+                        $('#content-header').text('Customers');
                         break;
                     }
                 case "Categories":
@@ -158,22 +158,22 @@
                         $('#content-header').text('Categories');
                         break;
                     }
-                case 'Authors':
+                case 'Meal':
                     {
                         $('.sequence').eq(2).addClass('active text-white');
-                        $('#content-header').text('Authors');
+                        $('#content-header').text('Meal');
                         break;
                     }
-                case 'Books':
+                case 'Orders':
                     {
                         $('.sequence').eq(3).addClass('active text-white');
-                        $('#content-header').text('Books');
+                        $('#content-header').text('Orders');
                         break;
                     }
                 default:
                     {
                         $('.sequence').eq(0).addClass('active text-white');
-                        $('#content-header').text('Branches');
+                        $('#content-header').text('Customers');
                         break;
                     }
             }
