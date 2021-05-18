@@ -98,6 +98,7 @@
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Helpers\ModelValidatorHelper.cs" />
     <Compile Include="Helpers\UIMessages.cs" />
+    <Compile Include="Kernel.cs" />
     <Compile Include="Mapper\BaseMapper.cs" />
     <Compile Include="Mapper\CategoryMapper.cs" />
     <Compile Include="Mapper\CustomerMapper.cs" />

@@ -69,7 +69,7 @@ namespace RestaurantAppWeb.Controllers
             CustomerMapper mapper = new CustomerMapper();
             Customer customer = mapper.Map(customerModel);
 
-            customer.Creator = Kernel.CurrentUser;
+            customer.Creator = Startup.CurrentUser;
             
             if(customer.Id != 0)
             {
@@ -95,7 +95,7 @@ namespace RestaurantAppWeb.Controllers
                 return Content("Silinmək üçün belə bir müştəri tapılmadı!");
             }
 
-            customer.Creator = Kernel.CurrentUser;
+            customer.Creator = Startup.CurrentUser;
 
             customer.IsDeleted = true;
 
