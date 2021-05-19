@@ -66,6 +66,11 @@ namespace RestaurantAppWeb.Controllers
         [HttpPost]
         public IActionResult SaveCustomer(CustomerModel customerModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return Content("Model is invalid");
+            }
+
             CustomerMapper mapper = new CustomerMapper();
             Customer customer = mapper.Map(customerModel);
 
