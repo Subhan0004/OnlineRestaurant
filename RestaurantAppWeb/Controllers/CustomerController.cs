@@ -13,14 +13,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantAppWeb.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomerController : BaseController
     {
-        private readonly IUnitOfWork DB;
-        public CustomerController(IUnitOfWork db)
-        {
-            DB = db;
-        }
-
+        
+        public CustomerController(IUnitOfWork db): base(db) { }
+        
         public IActionResult Index()
         {
             List<Customer> customers = DB.CustomerRepository.Get();
