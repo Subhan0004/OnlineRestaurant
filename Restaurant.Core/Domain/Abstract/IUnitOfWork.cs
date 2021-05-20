@@ -11,7 +11,11 @@ namespace Restaurant.Core.Domain.Abstract
         bool CheckServer();
         
         ICustomerRepository CustomerRepository { get; }
+
         IUserRepository UserRepository { get; }
+
         ICategoryRepository CategoryRepository { get; }
+
+        IMealRepository MealRepository { get; }
     }
 }

@@ -19,6 +19,11 @@ namespace Restaurant.Core.Extensions
             return Convert.ToInt32(reader[columnName]);
         }
 
+        public static int GetDecimal(this SqlDataReader reader, string columnName)
+        {
+            return Convert.ToInt32(reader[columnName]);
+        }
+
         public static string GetString(this SqlDataReader reader, string columnName)
         {
             return Convert.ToString(reader[columnName]);
