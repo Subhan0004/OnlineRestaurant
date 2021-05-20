@@ -1,5 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Restaurant.Core.Domain.Abstract;
+using Restaurant.Core.Domain.Entities;
+using RestaurantApp.Helpers;
+using RestaurantAppWeb.Mapper;
+using RestaurantAppWeb.Models;
+using RestaurantAppWeb.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +18,20 @@ namespace RestaurantAppWeb.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Meal> meals = DB.MealRepository.Get();
+            MealViewModel viewModel = new MealViewModel();
+
+            MealMapper mapper = new MealMapper();
+
+            foreach(var meal in meals)
+            {
+                MealModel mealModel = mapper.Map(meal);
+                viewModel.Meals.Add(mealModel);
+            }
+
+            EnumerationUtil.Enumerate(viewModel.Meals);
+
+            return View(viewModel);
         }
     }
 }

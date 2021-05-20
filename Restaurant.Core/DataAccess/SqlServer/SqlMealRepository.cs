@@ -74,7 +74,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
                            from Meal as m
                            Inner Join Categories as c ON c.Id = m.CategoriesId 
                            where m.IsDeleted = 0 and m.Id = @Id";
-                using (SqlCommand command = new SqlCommand())
+                using (SqlCommand command = new SqlCommand(cmdText,connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
 

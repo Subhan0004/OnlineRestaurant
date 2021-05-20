@@ -23,7 +23,7 @@ namespace RestaurantAppWeb
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            CurrentUser = new User() { Id = 1 };
+            CurrentUser = new User() { Id = 3 };
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
