@@ -47,7 +47,7 @@ namespace RestaurantAppWeb.Controllers
                 
                 if (customer == null)
                 {
-                    return Content("Belə bir müştəri tapılmadı!");
+                    return Content("Current customer not found!");
                 }
 
                 CustomerMapper mapper = new CustomerMapper();
@@ -94,10 +94,12 @@ namespace RestaurantAppWeb.Controllers
 
             if(customer == null)
             {
-                return Content("Silinmək üçün belə bir müştəri tapılmadı!");
+                return Content("Current customer not found!");
             }
 
             customer.Creator = Startup.CurrentUser;
+
+            customer.LastModifiedDate = DateTime.Now;
 
             customer.IsDeleted = true;
 

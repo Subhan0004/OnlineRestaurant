@@ -121,7 +121,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
             command.Parameters.AddWithValue("@Name", meal.Name);
             command.Parameters.AddWithValue("@Price", meal.Price);
             command.Parameters.AddWithValue("@Quantity", meal.Quantity);
-            command.Parameters.AddWithValue("@Note", meal.Note);
+            command.Parameters.AddWithValue("@Note", meal.Note ?? (object)DBNull.Value);
             command.Parameters.AddWithValue("@CreatorId", meal.Creator.Id);
             command.Parameters.AddWithValue("@LastModifiedDate", meal.LastModifiedDate);
             command.Parameters.AddWithValue("@IsDeleted", meal.IsDeleted);
