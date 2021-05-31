@@ -9,5 +9,7 @@ namespace RestaurantAppWeb.ViewModel
     public class MealViewModel
     {
        public List<MealModel> Meals { get; set; } = new List<MealModel>();
+
+        public int DeletedId { get; set; }
     }
 }
