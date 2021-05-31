@@ -20,6 +20,7 @@ namespace RestaurantAppWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Message = TempData["Message"];
             List<Meal> meals = DB.MealRepository.Get();
             MealViewModel viewModel = new MealViewModel();
 
@@ -91,6 +92,7 @@ namespace RestaurantAppWeb.Controllers
                 DB.MealRepository.Add(meal);
             }
 
+            TempData["Message"] = "Saved successfully";
             return RedirectToAction("Index");
         }
 
