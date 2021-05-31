@@ -3,6 +3,8 @@
 
 @{
     Layout = null;
+
+    string text = Model.Id != 0 ? "Update" : "Add";
 }
 
 <!DOCTYPE html>
@@ -60,15 +62,7 @@
             <span class="text-danger" asp-validation-for="Note"></span>
         </div>
         <div class="modal-footer">
-            @if (Model.Id != 0)
-            {
-                <button type="submit" class="btn btn-primary bgupdate">Update</button>
-            }
-            else
-            {
-                <button type="submit" class="btn btn-primary bgupdate">Add</button>
-            }
-
+            <button type="submit" class="btn btn-primary bgupdate">@text</button>
         </div>
     </form>
 </body>

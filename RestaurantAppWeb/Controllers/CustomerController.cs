@@ -41,6 +41,8 @@ namespace RestaurantAppWeb.Controllers
         [HttpGet]
         public IActionResult SaveCustomer(int id)
         {
+            CustomerModel model = new CustomerModel();
+
             if(id != 0)
             {
                 Customer customer = DB.CustomerRepository.Get(id);
@@ -52,12 +54,11 @@ namespace RestaurantAppWeb.Controllers
 
                 CustomerMapper mapper = new CustomerMapper();
 
-                CustomerModel customerModel = mapper.Map(customer);
+               model = mapper.Map(customer);
 
-                return View(customerModel);
             }
             
-            return View();
+            return View(model);
         }
 
         [HttpPost]
@@ -69,6 +70,7 @@ namespace RestaurantAppWeb.Controllers
             }
 
             CustomerMapper mapper = new CustomerMapper();
+
             Customer customer = mapper.Map(customerModel);
 
             customer.Creator = Startup.CurrentUser;
