@@ -19,7 +19,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
 
         public User Get(int id)
         {
-            using(SqlConnection connection = new SqlConnection())
+            using(SqlConnection connection = new SqlConnection(context.ConnectionString))
             {
                 connection.Open();
 

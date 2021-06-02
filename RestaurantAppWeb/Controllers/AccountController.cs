@@ -58,7 +58,7 @@ namespace RestaurantAppWeb.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Branch");
+                return RedirectToAction("Index", "Customer");
             }
             else
             {
