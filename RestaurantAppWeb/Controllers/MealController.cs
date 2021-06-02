@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Restaurant.Core.Domain.Abstract;
 using Restaurant.Core.Domain.Entities;
@@ -15,7 +16,7 @@ namespace RestaurantAppWeb.Controllers
 {
     public class MealController : BaseController
     {
-        public MealController(IUnitOfWork db) : base(db) { }
+        public MealController(IUnitOfWork db, UserManager<User> userManager) : base(db, userManager) { }
 
         [HttpGet]
         public IActionResult Index()
@@ -81,7 +82,7 @@ namespace RestaurantAppWeb.Controllers
 
             Meal meal = mapper.Map(model);
 
-            meal.Creator = Startup.CurrentUser;
+            meal.Creator = CurrentUser;
 
             if(meal.Id != 0)
             {
@@ -105,7 +106,7 @@ namespace RestaurantAppWeb.Controllers
                 Content("Current meal not found");
 
 
-            meal.Creator = Startup.CurrentUser;
+            meal.Creator = CurrentUser;
            
             meal.LastModifiedDate = DateTime.Now;
            

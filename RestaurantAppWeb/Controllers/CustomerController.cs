@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Restaurant.Core;
 using Restaurant.Core.Domain.Abstract;
 using Restaurant.Core.Domain.Entities;
@@ -13,10 +15,10 @@ using System.Threading.Tasks;
 
 namespace RestaurantAppWeb.Controllers
 {
+    [Authorize(Roles ="A")]
     public class CustomerController : BaseController
-    {
-        
-        public CustomerController(IUnitOfWork db): base(db) { }
+    {       
+        public CustomerController(IUnitOfWork db, UserManager<User> userManager): base(db, userManager) { }
         
         public IActionResult Index()
         {
@@ -74,7 +76,7 @@ namespace RestaurantAppWeb.Controllers
 
             Customer customer = mapper.Map(customerModel);
 
-            customer.Creator = Startup.CurrentUser;
+            customer.Creator = CurrentUser;
             
             if(customer.Id != 0)
             {
@@ -101,7 +103,7 @@ namespace RestaurantAppWeb.Controllers
                 return Content("Current customer not found!");
             }
 
-            customer.Creator = Startup.CurrentUser;
+            customer.Creator = CurrentUser;
 
             customer.LastModifiedDate = DateTime.Now;
 

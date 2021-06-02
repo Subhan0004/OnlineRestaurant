@@ -17,47 +17,94 @@ namespace Restaurant.Core.DataAccess.SqlServer
 
         }
 
+        public User Get(int id)
+        {
+            using(SqlConnection connection = new SqlConnection())
+            {
+                connection.Open();
+
+                string cmdText = @"select u.*, ur.Id as UserRoleId, ur.RoleId, r.Name as RoleName from Users as u Inner Join UserRoles as ur  ON u.Id = ur.UserId 
+                    Inner Join Roles as r ON ur.RoleId = r.Id
+                    where u.Id = @id and u.IsDeleted = 0";
+
+                using (SqlCommand command = new SqlCommand(cmdText,connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+
+                    var reader = command.ExecuteReader();
+
+                    User user = null;
+
+                    while (reader.Read())
+                    {
+                        ReadFromReader(reader, ref user);
+                    }
+
+                    return user;
+                }
+            }
+        }
+
         public User Get(string username)
         {
             using(SqlConnection connection = new SqlConnection(context.ConnectionString))
             {
                 connection.Open();
 
-                string cmdText = @"select * from Users
-                                  where Username=@username and IsDeleted = 0";
-                
-                using(SqlCommand cmd = new SqlCommand(cmdText, connection))
+                string cmdText = @"select u.*, ur.Id as UserRoleId, ur.RoleId, r.Name as RoleName from Users as u Inner Join UserRoles as ur  ON u.Id = ur.UserId 
+                    Inner Join Roles as r ON ur.RoleId = r.Id
+                    where u.Username = @username and u.IsDeleted = 0";
+
+                using (SqlCommand cmd = new SqlCommand(cmdText, connection))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
 
                     var reader = cmd.ExecuteReader();
 
-                    if (reader.Read())
-                    {
-                        User user = new User();
+                    User user = null;
 
-                        user.Id = reader.GetInt32("Id");
-                        user.Username = reader.GetString("Username");
-                        user.Password = reader.GetString("Password");
-                        user.CanOperatorCrm = reader.GetBoolean("CanOperatorCrm");
-                       
-                        if (!reader.IsDBNull("CreatorId"))
-                        {
-                            user.Creator = new User()
-                            {
-                                Id = Convert.ToInt32(reader["CreatorId"])
-                            };
-                        }
-                        user.LastModifiedDate = reader.GetDateTime("LastModifiedDate");
-                        user.IsDeleted = reader.GetBoolean("IsDeleted");
-                        
-                        return user;
+                    while (reader.Read())
+                    {
+                        ReadFromReader(reader, ref user);
                     }
-                    
-                    return null;
-                }
-                               
+
+                    return user;
+                }                              
             }
+        }
+
+        private void ReadFromReader(SqlDataReader reader, ref User user)
+        {
+            if(user == null)
+            {
+                user = new User();
+
+                user.Id = reader.GetInt32("Id");
+                user.Username = reader.GetString("Username");
+                user.Password = reader.GetString("Password");
+                user.CanOperatorCrm = reader.GetBoolean("CanOperatorCrm");
+                user.LastModifiedDate = reader.GetDateTime("LastModifiedDate");
+
+                if (!reader.IsDBNull("CreatorId"))
+                {
+                    user.Creator = new User()
+                    {
+                        Id = Convert.ToInt32(reader["CreatorId"])
+                    };
+                }
+
+                user.IsDeleted = reader.GetBoolean("IsDeleted");
+            }
+
+            UserRole userRole = new UserRole();
+
+            userRole.Id = reader.GetInt32("UserRoleId");
+            userRole.User = user;
+            userRole.Role = new Role();
+            userRole.Role.Id = reader.GetInt32("RoleId");
+            userRole.Role.Name = reader.GetString("RoleName");
+
+            user.UserRoles.Add(userRole);
         }
     }
 }

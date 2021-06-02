@@ -14,5 +14,7 @@ namespace Restaurant.Core.Domain.Entities
 
         public bool CanOperatorCrm { get; set; }
 
+        public List<UserRole> UserRoles { get; set; } = new List<UserRole>();
+
     }
 }

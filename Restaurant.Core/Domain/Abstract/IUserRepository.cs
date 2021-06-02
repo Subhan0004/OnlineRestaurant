@@ -10,5 +10,6 @@ namespace Restaurant.Core.Domain.Abstract
     public interface IUserRepository
     {
         User Get(string username);
+        User Get(int id);
     }
 }
