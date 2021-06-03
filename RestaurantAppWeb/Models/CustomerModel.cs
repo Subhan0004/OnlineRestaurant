@@ -17,7 +17,7 @@ namespace RestaurantAppWeb.Models
         public string Surname { get; set; }
 
         [Required(ErrorMessage ="The phone must be entered!")]
-        [StringLength(13, ErrorMessage ="The phone can't be longer than 13 characters")]
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage ="Phone number format is incorrect")]
         public string Phone { get; set; }
 
         [Required(ErrorMessage ="The address must be entered!")]

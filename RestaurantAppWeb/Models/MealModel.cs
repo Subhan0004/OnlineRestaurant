@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RestaurantAppWeb.Models
 {
@@ -17,7 +15,7 @@ namespace RestaurantAppWeb.Models
 
         public decimal Price { get; set; }
 
-        [Range(0.0, Double.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
+        [Range(0, int.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
         public int Quantity { get; set; }
 
         [Required(ErrorMessage = "The note must be entered!")]
