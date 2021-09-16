@@ -16,6 +16,11 @@ namespace Restaurant.Core.Domain.Abstract
 
         ICategoryRepository CategoryRepository { get; }
 
+        IOrderRepository OrderRepository { get; }
+
         IMealRepository MealRepository { get; }
+
+        ICourierRepository CourierRepository { get; }
+
     }
 }

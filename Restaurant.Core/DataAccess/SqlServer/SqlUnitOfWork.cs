@@ -22,6 +22,10 @@ namespace Restaurant.Core.DataAccess.SqlServer
 
         public IMealRepository MealRepository => new SqlMealRepository(context);
 
+        public IOrderRepository OrderRepository => new SqlOrderRepository(context);
+
+        public ICourierRepository CourierRepository => new SqlCourierRepository(context);
+
         public bool CheckServer()
         {
             try

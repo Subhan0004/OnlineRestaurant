@@ -23,7 +23,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
             {
                 connection.Open();
 
-                string cmdText = @"select u.*, ur.Id as UserRoleId, ur.RoleId, r.Name as RoleName from Users as u Inner Join UserRoles as ur  ON u.Id = ur.UserId 
+                string cmdText = @"select u.*, ur.Id as UserRoleId, ur.UserId, ur.RoleId, r.Name as RoleName from Users as u Inner Join UserRoles as ur  ON u.Id = ur.UserId 
                     Inner Join Roles as r ON ur.RoleId = r.Id
                     where u.Id = @id and u.IsDeleted = 0";
 
@@ -51,7 +51,8 @@ namespace Restaurant.Core.DataAccess.SqlServer
             {
                 connection.Open();
 
-                string cmdText = @"select u.*, ur.Id as UserRoleId, ur.RoleId, r.Name as RoleName from Users as u Inner Join UserRoles as ur  ON u.Id = ur.UserId 
+                string cmdText = @"select u.*, ur.Id as UserRoleId, ur.UserId, ur.RoleId, r.Name as RoleName from UserRoles as ur
+				   Inner Join Users as u  ON u.Id = ur.UserId 
                     Inner Join Roles as r ON ur.RoleId = r.Id
                     where u.Username = @username and u.IsDeleted = 0";
 

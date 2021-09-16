@@ -11,6 +11,9 @@ namespace RestaurantAppWeb.Mapper
     {
         public override Category Map(CategoryModel categoryModel)
         {
+            if (categoryModel == null)
+                return null;
+
             Category category = new Category();
             category.Id = categoryModel.Id;
             category.Name = categoryModel.Name;
@@ -21,6 +24,9 @@ namespace RestaurantAppWeb.Mapper
 
         public override CategoryModel Map(Category category)
         {
+            if (category == null)
+                return null;
+
             CategoryModel categoryModel = new CategoryModel();
 
             categoryModel.Id = category.Id;

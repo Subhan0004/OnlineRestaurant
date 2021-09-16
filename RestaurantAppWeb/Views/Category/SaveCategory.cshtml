@@ -1,6 +1,5 @@
 ﻿@using RestaurantAppWeb.Models
-
-@model MealModel
+@model CategoryModel
 
 @{
     Layout = null;
@@ -13,7 +12,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Save Meal</title>
+    <title>Save Category</title>
 
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/layout.css" />
@@ -37,32 +36,12 @@
     <script src="~/library/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body>
-    <form asp-controller="Meal" asp-action="SaveMeal" method="post" class="form-group">
+    <form asp-controller="Category" asp-action="SaveCategory" method="post" class="form-group">
         <div class="form-group">
             <label asp-for="Name" for="name" class="mr-sm-2">Name:</label>
             <input asp-for="Name" class="form-control mb-2 mr-sm-2" />
             <span class="text-danger" asp-validation-for="Name"></span>
         </div>
-        <div class="form-group">
-            <label asp-for="Category" for="category" class="mr-sm-2">Category:</label>
-
-            <select class="form-control  mb-2 mr-sm-2"
-                    asp-for="Category.Id" asp-items="Model.Categories"></select>
-            <span class="text-danger" asp-validation-for="Category"></span>
-        </div>
-        
-        <div class="form-group">
-            <label asp-for="Price" for="discount" class="mr-sm-2">Price:</label>
-            <input asp-for="Price" class="form-control mb-2 mr-sm-2" />
-            <span class="text-danger" asp-validation-for="Price"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Quantity" for="discount" class="mr-sm-2">Quantity:</label>
-            <input asp-for="Quantity" class="form-control mb-2 mr-sm-2" />
-            <span class="text-danger" asp-validation-for="Quantity"></span>
-        </div>
-
         <div class="form-group">
             <label asp-for="Note" for="discount" class="mr-sm-2">Note:</label>
             <input asp-for="Note" class="form-control mb-2 mr-sm-2" />

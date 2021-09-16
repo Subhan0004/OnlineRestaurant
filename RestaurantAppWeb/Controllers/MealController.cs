@@ -71,16 +71,24 @@ namespace RestaurantAppWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveMeal(MealModel model)
+        public IActionResult SaveMeal(MealModel mealModel)
         {
             if (!ModelState.IsValid)
             {
+                //            var errors = ModelState
+                //.Where(x => x.Value.Errors.Count > 0)
+                //.Select(x => new { x.Key, x.Value.Errors })
+                //.ToArray();
+
+                //var errors = ModelState.Values.SelectMany(v => v.Errors);
+
                 return Content("Model is invalid");
+                //var errors = ModelState.SelectMany(x => x.Value.Errors.Select(z => z.Exception));
             }
 
             MealMapper mapper = new MealMapper();
 
-            Meal meal = mapper.Map(model);
+            Meal meal = mapper.Map(mealModel);
 
             meal.Creator = CurrentUser;
 

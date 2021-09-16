@@ -41,9 +41,9 @@
                     <div class="list-group list-group-flush">
 
                         <a asp-controller="Customer" asp-action="Index" class="sequence list-group-item list-group-item-action">Customers</a>
-                        <a class="sequence list-group-item list-group-item-action">Categories</a>
-                        <a asp-controller="Meal" asp-action="Index" class="sequence list-group-item list-group-item-action">Meal</a>
-                        <a class="sequence list-group-item list-group-item-action">Orders</a>
+                        <a class="sequence list-group-item list-group-item-action" asp-controller="Category" asp-action="Index">Categories</a>
+                        <a asp-controller="Meal" asp-action="Index" class="sequence list-group-item list-group-item-action">Meals</a>
+                        <a class="sequence list-group-item list-group-item-action" asp-controller="Order" asp-action="Index">Orders</a>
                     </div>
                 </div>
                 <div id="content" class="col-sm-12 col-md-9 col-lg-10 col-xl-10 p-0">

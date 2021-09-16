@@ -11,6 +11,8 @@ namespace RestaurantAppWeb.Mapper
     {
         public override Customer Map(CustomerModel customerModel)
         {
+            if (customerModel == null)
+                return null;
             Customer customer = new Customer();
 
             customer.Name = customerModel.Name;
@@ -25,6 +27,8 @@ namespace RestaurantAppWeb.Mapper
 
         public override CustomerModel Map(Customer customer)
         {
+            if (customer == null)
+                return null;
             CustomerModel customerModel = new CustomerModel();
 
             customerModel.Id = customer.Id;

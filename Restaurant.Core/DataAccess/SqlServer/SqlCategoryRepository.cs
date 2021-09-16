@@ -87,7 +87,7 @@ namespace Restaurant.Core.DataAccess.SqlServer
             Category category = new Category();
 
             category.Id = reader.GetInt32("Id");
-            category.Name = reader.GetString("Name");         
+            category.Name = reader.GetString("Name");
             category.Note = reader.GetString("Note");
             category.LastModifiedDate = reader.GetDateTime("LastModifiedDate");
 
@@ -111,6 +111,31 @@ namespace Restaurant.Core.DataAccess.SqlServer
             cmd.Parameters.AddWithValue("@CreatorId", category.Creator.Id);
             cmd.Parameters.AddWithValue("@LastModifiedDate", category.LastModifiedDate);
             cmd.Parameters.AddWithValue("@IsDeleted", category.IsDeleted);
+        }
+
+        public Category Get(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(context.ConnectionString))
+            {
+                connection.Open();
+
+                string cmdText = "Select * from Categories where IsDeleted = 0 and Id = @Id";
+
+                using (SqlCommand command = new SqlCommand(cmdText, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        Category category = GetFromReader(reader);
+
+                        return category;
+                    }
+
+                    return null;
+                }
+            }
         }
     }
 }

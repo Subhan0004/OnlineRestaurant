@@ -32,7 +32,6 @@ namespace Restaurant.Core.DataAccess.SqlServer
                     AddParameters(cmd, customer);
 
                     return (int)cmd.ExecuteScalar();
-
                 }
             }
         }
