@@ -10,6 +10,7 @@ namespace Restaurant.Core
 {
     public static class SecurityHelper
     {
+
         public static string ComputeSha256Hash(string rawDate)
         {
             using(SHA256 sha256Hash = SHA256.Create())
