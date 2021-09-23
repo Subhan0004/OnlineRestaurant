@@ -19,6 +19,7 @@ namespace RestaurantApp.Helpers
             }
         }
 
+
         public static void Enumerate(List<MealModel> models, int startIndex = 0)
         {
             for (int i = startIndex; i < models.Count; i++)
