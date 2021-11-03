@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E58302A-5C32-4E14-9E12-107B622FD02A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RestaurantApp</RootNamespace>
+    <AssemblyName>RestaurantApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\ExportAttribute.cs" />
+    <Compile Include="Command\Categories\BaseCategoryCommand.cs" />
+    <Compile Include="Command\Categories\DeleteCategoryCommand.cs" />
+    <Compile Include="Command\Categories\ExportExcelCategoryCommand.cs" />
+    <Compile Include="Command\Categories\RejectCategoryCommand.cs" />
+    <Compile Include="Command\Categories\SaveCategoryCommand.cs" />
+    <Compile Include="Command\Customers\BaseCustomerCommand.cs" />
+    <Compile Include="Command\Customers\DeleteCustomerCommand.cs" />
+    <Compile Include="Command\Customers\ExportExcelCustomerCommand.cs" />
+    <Compile Include="Command\Customers\RejectCustomerCommand.cs" />
+    <Compile Include="Command\Customers\SaveCustomerCommand.cs" />
+    <Compile Include="Command\MainPage\OpenCategoriesCommand.cs" />
+    <Compile Include="Command\MainPage\OpenCustomersCommand.cs" />
+    <Compile Include="Enums\Situation.cs" />
+    <Compile Include="Helpers\EnumerationUtil.cs" />
+    <Compile Include="Helpers\ExcelExporter.cs" />
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\ModelValidatorHelper.cs" />
+    <Compile Include="Helpers\UIMessages.cs" />
+    <Compile Include="Kernel.cs" />
+    <Compile Include="Mapper\BaseMapper.cs" />
+    <Compile Include="Mapper\CategoryMapper.cs" />
+    <Compile Include="Mapper\CustomerMapper.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SureDialogViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\CategoriesViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\CustomersViewModel.cs" />
+    <Compile Include="Views\Components\ControlHeader.xaml.cs">
+      <DependentUpon>ControlHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\Excel.xaml.cs">
+      <DependentUpon>Excel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\FormButtons.xaml.cs">
+      <DependentUpon>FormButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\SureDialog.xaml.cs">
+      <DependentUpon>SureDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Configuration.xaml.cs">
+      <DependentUpon>Configuration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Command\BaseCommand.cs" />
+    <Compile Include="Command\LoginCommand.cs" />
+    <Compile Include="Models\DbSettings.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\Windows\StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\UserControls\CategoriesControl.xaml.cs">
+      <DependentUpon>CategoriesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\UserControls\CustomersControl.xaml.cs">
+      <DependentUpon>CustomersControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Restaurant.Core\Restaurant.Core.csproj">
+      <Project>{695c2353-311b-467a-bded-fa309e4dc6e8}</Project>
+      <Name>Restaurant.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\User\Source\Repos\OnlineRestaurant\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll" />
+    <ReferencePath Include="C:\Users\User\Source\Repos\OnlineRestaurant\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll" />
+    <ReferencePath Include="C:\Users\User\Source\Repos\OnlineRestaurant\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\mscorlib.dll" />
+    <ReferencePath Include="C:\Users\User\Source\Repos\OnlineRestaurant\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Users\User\Source\Repos\OnlineRestaurant\Restaurant.Core\bin\Debug\netstandard2.0\Restaurant.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.ComponentModel.Composition.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll" />
+    <ReferencePath Include="C:\Users\User\Source\Repos\OnlineRestaurant\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.IO.FileSystem.Primitives.dll" />
+    <ReferencePath Include="C:\Users\User\Source\Repos\OnlineRestaurant\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\netstandard.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Components\ControlHeader.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Components\Excel.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Components\FormButtons.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Components\Search.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Components\SureDialog.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Windows\Configuration.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Windows\LoginWindow.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Windows\MainWindow.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Windows\StartWindow.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Windows\UserControls\CategoriesControl.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\Views\Windows\UserControls\CustomersControl.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\App.g.cs" />
+    <Compile Include="C:\Users\User\Source\Repos\OnlineRestaurant\RestaurantApp\obj\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>
