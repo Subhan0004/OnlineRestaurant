@@ -211,8 +211,9 @@
         </PasswordBox>
         <Separator BorderBrush="#60444444" Margin="10"/>
 
-        <TextBlock Visibility="{Binding Path=ErrorVisibility}" Text="İstifadəçi adı və ya şifrə yanlışdır" Background="#FF24253A"    FontFamily="Times New Roman" FontSize="24" 
-                           Foreground="Red" Margin="25,0,0,10"  />
+        <TextBlock Visibility="{Binding Path=ErrorVisibility}" Text="İstifadəçi adı və ya şifrə yanlışdır" 
+                   FontFamily="Times New Roman" FontSize="24" 
+                   Foreground="White" Margin="25,0,0,10"  />
 
         <!--button-->
         <Button 
