@@ -154,7 +154,7 @@
     </Window.Resources>
 
     <Window.Background>
-        <ImageBrush ImageSource="/Images/image3.jpeg" />
+        <ImageBrush ImageSource="/Images/image4.jpeg" />
     </Window.Background>
     
     <StackPanel  
