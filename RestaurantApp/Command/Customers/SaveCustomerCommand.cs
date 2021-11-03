@@ -46,11 +46,14 @@ namespace RestaurantApp.Command.Customers
                         // STEP 3: SAVE CustomerEntity to database
                         if (customer.Id != 0)
                         {
+
                             DB.CustomerRepository.Update(customer);
 
                             CustomerModel updateModels = viewModel.AllCustomers.FirstOrDefault(x => x.Id == viewModel.CurrentCustomer.Id);
                             int updateIndex = viewModel.AllCustomers.IndexOf(updateModels);
                             viewModel.AllCustomers[updateIndex] = viewModel.CurrentCustomer;
+
+
                         }
                         else
                         {
